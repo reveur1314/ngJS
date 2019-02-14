@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://www.angularjs.net.cn/tutorial/23.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AngularJS 端对端测试</title>
+<link rel="icon" href="http://www.angularjs.net.cn/Application/Home/View/Public/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="./21.AngularJS 端对端测试_files/bootstrap.min.css">
+<link href="./21.AngularJS 端对端测试_files/prettify.css" rel="stylesheet">
+<script src="./21.AngularJS 端对端测试_files/hm.js.下载"></script><script src="./21.AngularJS 端对端测试_files/prettify.js.下载"></script>
+
+
+<link rel="stylesheet" href="./21.AngularJS 端对端测试_files/style.css">
+
+</head>
+<body onload="prettyPrint()">
+<div id="top">
+	<div class="container">
+	<div class="logo"><a href="http://www.angularjs.net.cn/">AngularJs中文网</a></div>
+	<ul>
+		<li><a href="http://www.angularjs.net.cn/">首页</a></li>
+		<li><a href="http://www.angularjs.net.cn/tutorial/">AngularJS 教程</a></li>
+		
+		<li><a href="http://www.angularjs.net.cn/phonecat/">AngularJS PhoneCat</a></li>
+		<li><a href="http://www.angularjs.net.cn/download/">AngularJS 下载</a></li>
+		<li><a href="http://www.angularjs.net.cn/api/">AngularJS api</a></li>
+		<li style="display:none;"><a href="http://www.angularjs.net.cn/angular-seed">AngularJS Seed</a></li>
+	<li><a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=iuvvbh9n" onclick="_hmt.push([&#39;_trackEvent&#39;, &#39;nav&#39;, &#39;click&#39;, &#39;Ecs&#39;])" target="_blank">Ecs服务器</a></li>
+	
+
+	
+	</ul>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+<ul>
+	<li><a href="http://www.angularjs.net.cn/tutorial/1.html">简介（Introduction）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/16.html">引导程序（Bootstrap）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/18.html">概念概述(Conceptual Overview)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/15.html">Html编译（HTML Compiler）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/10.html">数据绑定（Data Binding）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/2.html">控制器(Controllers)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/19.html">服务（Services）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/12.html">作用域(Scope)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/17.html">依赖注入(Dependency Injection)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/13.html">模板（Templates）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/11.html">使用css(Working With CSS)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/8.html">过滤器（Filters）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/4.html">表单(Forms)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/5.html">指令(Directives)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/20.html">Components</a></li><li><a href="http://www.angularjs.net.cn/tutorial/21.html">Component Router</a></li><li><a href="http://www.angularjs.net.cn/tutorial/7.html">动画(Animations)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/6.html">模块(Modules)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/3.html">表达式(Expressions)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/9.html">供应者（Providers）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/14.html">$location</a></li><li><a href="http://www.angularjs.net.cn/tutorial/22.html">单元测试</a></li><li><a href="http://www.angularjs.net.cn/tutorial/23.html">端对端测试</a></li></ul>
+<div id="ad">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 160x600 -->
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="1088261149"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+		<div class="col-md-9">
+			<div class="page-header"><h1>AngularJS 端对端测试</h1></div>
+
+<div style="margin-bottom:10px;">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 728x90 --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="2639707541"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 728x90 --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="2639707541"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+			
+			
+    <p><strong> 如果你正准备新建一个Angular项目，建议你使用<a href="https://github.com/angular/protractor">Protractor</a>，它将在不久之后取代现在的模块成为端到端测试的内置模块。 </strong></p>
+    <p>现在的应用程序在大小和复杂度方面与日俱增，依靠人工测试来验证新特性、查找bug和进行回归测试已经变得不现实了。</p>
+    <p>为了解决这个问题，我们创建了Angular场景测试工具（Angular Scenario Runner），它将模拟用户的交互，以帮助你为Angular应用程序进行“体检”。</p>
+    <h2 id="概览">概览</h2>
+    <p>你可以用JavaScript来写场景测试，它描述你的应用程序的工作方式，在各种特定的状态下定义出正确的互动结果。
+        一个场景由一个或多个<code><span class="pln">it</span></code>块语句组成（可以把这些看做应用程序的“需求”），这些语句由<strong>命令（command）</strong>和<strong>期望(expectation)</strong>组成。
+        命令负责告诉测试工具（runner）应用程序去做点什么（比如访问一个页面或者点击一个按钮），而期望则告诉测试工具，这个状态下哪些断言（assertion）必须成立（比如某个输入框的值或者当前页面的URL）。
+        如果某些期望落空了，测试工具就会把相应的<code><span class="pln">it</span></code>语句标记为“失败(failed)”，然后继续执行下一个。
+        场景（scenarios）还可能包含<strong>beforeEach</strong>和<strong>afterEach</strong>语句，它们将在每个<code><span class="pln">it</span></code>语句之前（或之后）运行 —— 无论这些语句是执行成功了还是失败了。</p>
+    <p><img src="./21.AngularJS 端对端测试_files/scenario_runner.png"></p>
+    <p>除了上面这些内容之外，场景还可能包含一些辅助函数，用来消除各个<code><span class="pln">it</span></code>语句中的重复代码。</p>
+    <p>下面是一个简单的场景范例：</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">describe</span><span class="pun">(</span><span class="str">'Buzz客户端'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">it</span><span class="pun">(</span><span class="str">'应该对结果进行过滤'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">  input</span><span class="pun">(</span><span class="str">'user'</span><span class="pun">).</span><span class="pln">enter</span><span class="pun">(</span><span class="str">'jacksparrow'</span><span class="pun">);</span></li><li class="L3"><span class="pln">  element</span><span class="pun">(</span><span class="str">':button'</span><span class="pun">).</span><span class="pln">click</span><span class="pun">();</span></li><li class="L4"><span class="pln">  expect</span><span class="pun">(</span><span class="pln">repeater</span><span class="pun">(</span><span class="str">'ul li'</span><span class="pun">).</span><span class="pln">count</span><span class="pun">()).</span><span class="pln">toEqual</span><span class="pun">(</span><span class="lit">10</span><span class="pun">);</span></li><li class="L5"><span class="pln">  input</span><span class="pun">(</span><span class="str">'filterText'</span><span class="pun">).</span><span class="pln">enter</span><span class="pun">(</span><span class="str">'Bees'</span><span class="pun">);</span></li><li class="L6"><span class="pln">  expect</span><span class="pun">(</span><span class="pln">repeater</span><span class="pun">(</span><span class="str">'ul li'</span><span class="pun">).</span><span class="pln">count</span><span class="pun">()).</span><span class="pln">toEqual</span><span class="pun">(</span><span class="lit">1</span><span class="pun">);</span></li><li class="L7"><span class="pun">});</span></li><li class="L8"><span class="pun">});</span></li></ol></pre>
+    <p>注意：<a href="https://github.com/angular/angular.js/blob/master/docs/content/guide/dev_guide.e2e-testing.ngdoc#L119"><code><span class="pln">input</span><span class="pun">(</span><span class="str">'user'</span><span class="pun">)</span></code></a>语句会查找具有<code><span class="pln">ng</span><span class="pun">-</span><span class="pln">model</span><span class="pun">=</span><span class="str">"user"</span></code>属性的<code><span class="tag">&lt;input&gt;</span></code>元素，而不会查找具有<code><span class="pln">name</span><span class="pun">=</span><span class="str">"user"</span></code>属性的！</p>
+    <p>这个场景描述了一个Buzz客户端的需求，特别是，他应该能够根据用户的输入进行过滤。它先模拟把一个值输入到带有ng-model="user"属性的输入框中，然后，点击页面中唯一的一个按钮，然后，检查是否列出了10条结果。接下来，它在带有ng-model="filterText"属性的输入框中输入文本：'Bees'，最后验证一下这个列表是否已经被过滤得只剩下一条结果。</p>
+    <p>下面列出了在测试工具(runner)的命令(command)和期望(expectation)语句中可以使用的API。</p>
+    <h2 id="api">API</h2>
+    <p>源码：<a href="https://github.com/angular/angular.js/blob/master/src/ngScenario/dsl.js"></a><a href="https://github.com/angular/angular.js/blob/master/src/ngScenario/dsl.js">https://github.com/angular/angular.js/blob/master/src/ngScenario/dsl.js</a></p>
+    <h3 id="api_pause">pause()</h3>
+    <p>暂停测试代码的执行，直到你在控制台中调用了<code><span class="pln">resume</span><span class="pun">()</span></code>函数（或者在测试工具的UI中点击了“恢复(resume)”链接）</p>
+    <h3 id="api_sleep">sleep(seconds)</h3>
+    <p>让测试代码的执行暂停<code><span class="pln">seconds</span></code>秒。</p>
+    <h3 id="api_browser">browser().navigateTo(url)</h3>
+    <p>把指定的<code><span class="pln">url</span></code>加载到测试框架（译注：测试框架是指用来运行测试的浏览器环境，比如chrome浏览器或phantomjs）中。</p>
+    <h3 id="api_browser">browser().navigateTo(url, fn)</h3>
+    <p>把fn返回的URL加载到测试框架中。此处指定的<code><span class="pln">url</span></code>参数对代码没有实际影响，只用于测试输出。如果目标URL是动态生成的，这种形式会非常有用（即：目标URL在我们写测试的时候是预先无法确定的）。</p>
+    <h3 id="api_browser">browser().reload()</h3>
+    <p>刷新测试框架中的当前页。</p>
+    <h3 id="api_browser">browser().window().href()</h3>
+    <p>返回测试框架中当前页的window.location.href值。</p>
+    <h3 id="api_browser">browser().window().path()</h3>
+    <p>返回测试框架中当前页的window.location.pathname值。</p>
+    <h3 id="api_browser">browser().window().search()</h3>
+    <p>返回测试框架中当前页的window.location.search值。</p>
+    <h3 id="api_browser">browser().window().hash()</h3>
+    <p>返回测试框架中当前页的window.location.hash值（不包括<code><span class="com">#</span></code>）。</p>
+    <h3 id="api_browser">browser().location().url()</h3>
+    <p>返回测试框架中当前页的<a href="http://www.angularjs.net.cn/tutorial/api/ng.$location"><code><span class="pln">$location</span><span class="pun">.</span><span class="pln">url</span><span class="pun">()</span></code></a>值。</p>
+    <h3 id="api_browser">browser().location().path()</h3>
+    <p>返回测试框架中当前页的<a href="http://www.angularjs.net.cn/tutorial/api/ng.$location"><code><span class="pln">$location</span><span class="pun">.</span><span class="pln">path</span><span class="pun">()</span></code></a>值。</p>
+    <h3 id="api_browser">browser().location().search()</h3>
+    <p>返回测试框架中当前页的<a href="http://www.angularjs.net.cn/tutorial/api/ng.$location"><code><span class="pln">$location</span><span class="pun">.</span><span class="pln">search</span><span class="pun">()</span></code></a>值。</p>
+    <h3 id="api_browser">browser().location().hash()</h3>
+    <p>返回测试框架中当前页的<a href="http://www.angularjs.net.cn/tutorial/api/ng.$location"><code><span class="pln">$location</span><span class="pun">.</span><span class="pln">hash</span><span class="pun">()</span></code></a>值。</p>
+    <h3 id="api_expect{matcher}">expect(future).{matcher}</h3>
+    <p>断言<code><span class="pln">future</span></code>参数（译注：future就是异步执行模式中的通知对象，会在异步执行完毕时触发回调，类似于$q中的promise）的“值(value)”符合<code><span class="pun">匹配器(</span><span class="pln">matcher</span><span class="pun">)</span></code>的期望。所有API语句都会返回<code><span class="pln">future</span></code>对象，它被执行后会返回一个“值”。<code><span class="pun">匹配器</span></code>是通过<code><span class="pln">angular</span><span class="pun">.</span><span class="pln">scenario</span><span class="pun">.</span><span class="pln">matcher</span></code>定义的，并且通过求出这个<code><span class="pln">future</span></code>对象的“值”来验证是否符合期望。比如：<code><span class="pln">expect</span><span class="pun">(</span><span class="pln">browser</span><span class="pun">().</span><span class="pln">location</span><span class="pun">().</span><span class="pln">href</span><span class="pun">()).</span><span class="pln">toEqual</span><span class="pun">(</span><span class="str">'http://www.google.com'</span><span class="pun">)</span></code>。后面的文档中将深入讲解各种可用的匹配器。</p>
+    <h3 id="api_expect{matcher}">expect(future).not().{matcher}</h3>
+    <p>断言<code><span class="pln">future</span></code>的值不满足<code><span class="pln">matcher</span></code>的要求</p>
+    <h3 id="api_using">using(selector, label)</h3>
+    <p>限定接下来的语句中元素选择器的所属范围。
+        （译注：这里的选择器 - <code><span class="pln">selector</span></code>都是指jQuery选择器，参见<a href="http://api.jquery.com/category/selectors/">jQuery选择器</a>）</p>
+    <h3 id="api_binding">binding(name)</h3>
+    <p>返回匹配指定<code><span class="pln">name</span></code>的第一个绑定对象(binding)的值。
+        （译注：什么是binding？比如假设模板中有'</p><div id="element" ng-bind="object" class="ng-binding"></div>'，则object称为#element的“绑定对象”）<p></p>
+    <h3 id="api_input">input(name).enter(value)</h3>
+    <p>在ng-model值是<code><span class="pln">name</span></code>的文本框中输入指定的<code><span class="pln">value</span></code>。</p>
+    <h3 id="api_input">input(name).check()</h3>
+    <p>选中或反选ng-model值是<code><span class="pln">name</span></code>的检查框。</p>
+    <h3 id="api_input">input(name).select(value)</h3>
+    <p>在ng-model值是<code><span class="pln">name</span></code>的单选组中选中值为<code><span class="pln">value</span></code>的那个。</p>
+    <h3 id="api_input">input(name).val()</h3>
+    <p>返回ng-model值是<code><span class="pln">name</span></code>的输入框的当前值。</p>
+    <h3 id="api_repeater">repeater(selector, label).count()</h3>
+    <p>返回<code><span class="pln">selector</span></code>选定的repeater（译注：可以简单的理解为ng-repeat）的行数。<code><span class="pln">label</span></code>参数对代码没有实际影响，只用做测试输出。</p>
+    <h3 id="api_repeater">repeater(selector, label).row(index)</h3>
+    <p>返回<code><span class="pln">selector</span></code>选定的repeater中，绑定到第<code><span class="pln">index</span></code>行的所有绑定对象(译注：各个绑定对象的值，参见binding函数，一行一般都有多个绑定表达式)构成的数组。<code><span class="pln">label</span></code>参数对代码没有实际影响，只用做测试输出。</p>
+    <h3 id="api_repeater">repeater(selector, label).column(binding)</h3>
+    <p class="ng-binding">返回<code><span class="pln">selector</span></code>选定的repeater中，由所有绑定到<code><span class="pln">binding</span></code>（译注：传入绑定对象的表达式，比如模板中是a，此处就应该用'name + "a"'作为参数，表达式中+前后的空格会被忽略）的列内容构成的数组。<code><span class="pln">label</span></code>参数对代码没有实际影响，只用做测试输出。</p>
+    <h3 id="api_select">select(name).option(value)</h3>
+    <p>从ng-model值是<code><span class="pln">name</span></code>的select元素中，选择指定<code><span class="pln">value</span></code>值的option。</p>
+    <h3 id="api_select">select(name).options(value1, value2...)</h3>
+    <p>从ng-model值是<code><span class="pln">name</span></code>的select元素中，选择所有存在于<code><span class="pln">values</span></code>（即：value1, value2...）参数中的option。</p>
+    <h3 id="api_element">element(selector, label).count()</h3>
+    <p>返回<code><span class="pln">selector</span></code>选定的元素的数量。<code><span class="pln">label</span></code>参数对代码没有实际影响，只用做测试输出。</p>
+    <h3 id="api_element">element(selector, label).click()</h3>
+    <p>模拟点击<code><span class="pln">selector</span></code>选定的元素。<code><span class="pln">label</span></code>参数对代码没有实际影响，只用做测试输出。</p>
+    <h3 id="api_element">element(selector, label).query(fn)</h3>
+    <p>用<code><span class="pln">fn</span><span class="pun">(</span><span class="pln">selectedElements</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">done</span><span class="pun">)</span></code>的形式调用fn函数，<code><span class="pln">selectedElements</span></code>是匹配指定选择器的所有元素，<code><span class="kwd">done</span></code>是一个函数，供<code><span class="pln">fn</span></code>结束时调用。<code><span class="pln">label</span></code>参数对代码没有实际影响，只用做测试输出。</p>
+    <h3 id="api_element">element(selector, label).{method}()</h3>
+    <p>返回在<code><span class="pln">selector</span></code>选定的元素上调用<code><span class="pln">method</span><span class="pun">()</span></code>的结果。<code><span class="pln">method</span></code>可以是下列jquery方法之一：<code><span class="pln">val</span></code>, <code><span class="pln">text</span></code>, <code><span class="pln">html</span></code>, <code><span class="pln">height</span></code>,
+        <code><span class="pln">innerHeight</span></code>, <code><span class="pln">outerHeight</span></code>, <code><span class="pln">width</span></code>, <code><span class="pln">innerWidth</span></code>, <code><span class="pln">outerWidth</span></code>, <code><span class="pln">position</span></code>, <code><span class="pln">scrollLeft</span></code>,
+        <code><span class="pln">scrollTop</span></code>, <code><span class="pln">offset</span></code>。<code><span class="pln">label</span></code>参数对代码没有实际影响，只用做测试输出。</p>
+    <h3 id="api_element">element(selector, label).{method}(value)</h3>
+    <p>在<code><span class="pln">selector</span></code>选定的元素上执行<code><span class="pln">method</span><span class="pun">(</span><span class="pln">value</span><span class="pun">)</span></code>函数。<code><span class="pln">method</span></code>可以是下列jquery方法之一：<code><span class="pln">val</span></code>, <code><span class="pln">text</span></code>, <code><span class="pln">html</span></code>, <code><span class="pln">height</span></code>,
+        <code><span class="pln">innerHeight</span></code>, <code><span class="pln">outerHeight</span></code>, <code><span class="pln">width</span></code>, <code><span class="pln">innerWidth</span></code>, <code><span class="pln">outerWidth</span></code>, <code><span class="pln">position</span></code>, <code><span class="pln">scrollLeft</span></code>,
+        <code><span class="pln">scrollTop</span></code>, <code><span class="pln">offset</span></code>。<code><span class="pln">label</span></code>参数对代码没有实际影响，只用做测试输出。</p>
+    <h3 id="api_element">element(selector, label).{method}(key)</h3>
+    <p>在<code><span class="pln">selector</span></code>选定的元素上执行<code><span class="pln">method</span><span class="pun">(</span><span class="pln">key</span><span class="pun">)</span></code>函数。<code><span class="pln">method</span></code>可以是下列jquery方法之一：<code><span class="pln">attr</span></code>, <code><span class="pln">prop</span></code>, <code><span class="pln">css</span></code>。<code><span class="pln">label</span></code>参数对代码没有实际影响，只用做测试输出。</p>
+    <h3 id="api_element">element(selector, label).{method}(key, value)</h3>
+    <p>在<code><span class="pln">selector</span></code>选定的元素上执行<code><span class="pln">method</span><span class="pun">(</span><span class="pln">key</span><span class="pun">,</span><span class="pln"> value</span><span class="pun">)</span></code>函数。<code><span class="pln">method</span></code>可以是下列jquery方法之一：<code><span class="pln">attr</span></code>, <code><span class="pln">prop</span></code>, <code><span class="pln">css</span></code>。<code><span class="pln">label</span></code>参数对代码没有实际影响，只用做测试输出。</p>
+    <h2 id="matchers">Matchers</h2>
+    <p>匹配器(matcher)用于和<code><span class="pln">expect</span><span class="pun">(...)</span></code>函数组合起来构成断言，并且可以和<code><span class="kwd">not</span><span class="pun">()</span></code>连用来表示否定。例如：<code><span class="pln">expect</span><span class="pun">(</span><span class="pln">element</span><span class="pun">(</span><span class="str">'h1'</span><span class="pun">).</span><span class="pln">text</span><span class="pun">()).</span><span class="kwd">not</span><span class="pun">().</span><span class="pln">toEqual</span><span class="pun">(</span><span class="str">'Error'</span><span class="pun">)</span></code>。</p>
+    <p>源码: <a href="https://github.com/angular/angular.js/blob/master/src/ngScenario/matchers.js"></a><a href="https://github.com/angular/angular.js/blob/master/src/ngScenario/matchers.js">https://github.com/angular/angular.js/blob/master/src/ngScenario/matchers.js</a></p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="com">// 值和对象的比较使用与angular.equals相同的规则</span></li><li class="L1"><span class="pln">expect</span><span class="pun">(</span><span class="pln">value</span><span class="pun">).</span><span class="pln">toEqual</span><span class="pun">(</span><span class="pln">value</span><span class="pun">)</span></li><li class="L2"><span class="pln">&nbsp;</span></li><li class="L3"><span class="com">// 简单类型的比较使用===运算符进行精确比较</span></li><li class="L4"><span class="pln">expect</span><span class="pun">(</span><span class="pln">value</span><span class="pun">).</span><span class="pln">toBe</span><span class="pun">(</span><span class="pln">value</span><span class="pun">)</span></li><li class="L5"><span class="pln">&nbsp;</span></li><li class="L6"><span class="com">// 检查value当前是否具有任何已定义的类型（即value !== undefined）</span></li><li class="L7"><span class="pln">expect</span><span class="pun">(</span><span class="pln">value</span><span class="pun">).</span><span class="pln">toBeDefined</span><span class="pun">()</span></li><li class="L8"><span class="pln">&nbsp;</span></li><li class="L9"><span class="com">// 这两个匹配器使用JavaScript标准的真值规则进行判断</span></li><li class="L0"><span class="pln">expect</span><span class="pun">(</span><span class="pln">value</span><span class="pun">).</span><span class="pln">toBeTruthy</span><span class="pun">()</span></li><li class="L1"><span class="pln">expect</span><span class="pun">(</span><span class="pln">value</span><span class="pun">).</span><span class="pln">toBeFalsy</span><span class="pun">()</span></li><li class="L2"><span class="pln">&nbsp;</span></li><li class="L3"><span class="com">// 检查value是否符合指定的正则表达式。正则表达式既可以用字符串的形式传入，也可以用正则表达式对象的形式（如new RegExp('.*')或/.*/）传入。</span></li><li class="L4"><span class="pln">expect</span><span class="pun">(</span><span class="pln">value</span><span class="pun">).</span><span class="pln">toMatch</span><span class="pun">(</span><span class="pln">expectedRegExp</span><span class="pun">)</span></li><li class="L5"><span class="pln">&nbsp;</span></li><li class="L6"><span class="com">// 使用===精确检查null值</span></li><li class="L7"><span class="pln">expect</span><span class="pun">(</span><span class="pln">value</span><span class="pun">).</span><span class="pln">toBeNull</span><span class="pun">()</span></li><li class="L8"><span class="pln">&nbsp;</span></li><li class="L9"><span class="com">// 内部用Array.indexOf(...)函数检查指定的元素是否包含在当前数组中。</span></li><li class="L0"><span class="pln">expect</span><span class="pun">(</span><span class="pln">value</span><span class="pun">).</span><span class="pln">toContain</span><span class="pun">(</span><span class="pln">expected</span><span class="pun">)</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="com">// 使用`&lt;`和`&gt;`运算符进行数值比较。</span></li><li class="L3"><span class="pln">expect</span><span class="pun">(</span><span class="pln">value</span><span class="pun">).</span><span class="pln">toBeLessThan</span><span class="pun">(</span><span class="pln">expected</span><span class="pun">)</span></li><li class="L4"><span class="pln">expect</span><span class="pun">(</span><span class="pln">value</span><span class="pun">).</span><span class="pln">toBeGreaterThan</span><span class="pun">(</span><span class="pln">expected</span><span class="pun">)</span></li></ol></pre>
+    <h2 id="范例">范例</h2>
+    <p>参见<a href="https://github.com/angular/angular-seed">Angular种子项目</a>项目中的例子。</p>
+    <h3 id="范例_通过element执行有条件的动作">通过element(...).query(fn)执行有条件的动作</h3>
+    <p>Angular场景化的端到端(E2E)测试，高度支持异步特性，它通过将动作和期望存入队列来隐藏了处理异步结果(future)时的很多复杂度。
+        你可能需要使用一些有条件的断言或元素选取规则，或者需要某些通用的机制来消除重复代码（重复代码往往表示测试代码中有“坏味道”），这时，你可以通过<code><span class="pln">element</span><span class="pun">(...).</span><span class="pln">query</span><span class="pun">(</span><span class="pln">fn</span><span class="pun">)</span></code>来添加一些有条件的行为。
+        下列代码将演示这个函数如何通过应用程序的web界面来删除附加的实体（这里的实体是一些领域对象）。</p>
+    <p>假设应用程序是由两个视图组成的：</p>
+    <ol>
+        <li><em>列表视图</em>列出表中添加的所有实体。</li>
+        <li><em>详情视图</em>现实实体的细节，还有一个“删除”按钮。点击“删除”按钮的时候，用户重定向回<em>列表视图</em>。</li>
+    </ol>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">beforeEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">  </span><span class="kwd">var</span><span class="pln"> deleteEntry </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    browser</span><span class="pun">().</span><span class="pln">navigateTo</span><span class="pun">(</span><span class="str">'/entries'</span><span class="pun">);</span></li><li class="L3"><span class="pln">&nbsp;</span></li><li class="L4"><span class="pln">    </span><span class="com">// 我们需要选择&lt;tbody&gt;元素，他现在没有实体（即：没有&lt;tr&gt;元素）。如果选择器没有匹配到结果，则本测试直接失败。</span></li><li class="L5"><span class="pln">    element</span><span class="pun">(</span><span class="str">'table tbody'</span><span class="pun">).</span><span class="pln">query</span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">tbody</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">done</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">      </span><span class="com">// ngScenario传给我们的是一个jQuery lite包装之后的元素。我们可以调用它的children()函数获取tbody的所有&lt;tr&gt;元素。</span></li><li class="L7"><span class="pln">      </span><span class="kwd">var</span><span class="pln"> children </span><span class="pun">=</span><span class="pln"> tbody</span><span class="pun">.</span><span class="pln">children</span><span class="pun">();</span></li><li class="L8"><span class="pln">&nbsp;</span></li><li class="L9"><span class="pln">      </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">children</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L0"><span class="pln">        </span><span class="com">// 如果表格中至少有一个实体，点击链接，转到这个实体的详情页</span></li><li class="L1"><span class="pln">        element</span><span class="pun">(</span><span class="str">'table tbody a'</span><span class="pun">).</span><span class="pln">click</span><span class="pun">();</span></li><li class="L2"><span class="pln">        </span><span class="com">// 路由变化之后，点击“删除”按钮。</span></li><li class="L3"><span class="pln">        element</span><span class="pun">(</span><span class="str">'.btn-danger'</span><span class="pun">).</span><span class="pln">click</span><span class="pun">();</span></li><li class="L4"><span class="pln">      </span><span class="pun">}</span></li><li class="L5"><span class="pln">&nbsp;</span></li><li class="L6"><span class="pln">      </span><span class="com">// 如果表格中显示了不止一个实体，则把其他的删除操作排入队列。</span></li><li class="L7"><span class="pln">      </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">children</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">        deleteEntry</span><span class="pun">();</span></li><li class="L9"><span class="pln">      </span><span class="pun">}</span></li><li class="L0"><span class="pln">&nbsp;</span></li><li class="L1"><span class="pln">      </span><span class="com">// 别忘了调用`done()`函数，这样ngScenario才会继续执行测试，否则会出现超时错误。</span></li><li class="L2"><span class="pln">      </span><span class="kwd">done</span><span class="pun">();</span></li><li class="L3"><span class="pln">    </span><span class="pun">});</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">  </span><span class="pun">};</span></li><li class="L6"><span class="pln">&nbsp;</span></li><li class="L7"><span class="pln">  </span><span class="com">// 开始删除实体</span></li><li class="L8"><span class="pln">  deleteEntry</span><span class="pun">();</span></li><li class="L9"><span class="pun">});</span></li></ol></pre>
+    <p>// 为了帮助理解它的工作原理，我们要强调一句：ngScenario的调用不是立刻执行的，而是先排入队列（按照ngScenario中的术语，我们称之为添加“未来动作(future action)”）。如果在表格中我们只有一个实体，那么下列“未来动作”将被排入队列：</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="com">// 删除实体1</span></li><li class="L1"><span class="pln">browser</span><span class="pun">().</span><span class="pln">navigateTo</span><span class="pun">(</span><span class="str">'/entries'</span><span class="pun">);</span></li><li class="L2"><span class="pln">element</span><span class="pun">(</span><span class="str">'table tbody'</span><span class="pun">).</span><span class="pln">query</span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">tbody</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">done</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">});</span></li><li class="L3"><span class="pln">element</span><span class="pun">(</span><span class="str">'table tbody a'</span><span class="pun">);</span></li><li class="L4"><span class="pln">element</span><span class="pun">(</span><span class="str">'.btn-danger'</span><span class="pun">).</span><span class="pln">click</span><span class="pun">();</span></li></ol></pre>
+    <p>对于两个实体，ngScenario将产生下列队列：</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="com">// 删除实体1</span></li><li class="L1"><span class="pln">browser</span><span class="pun">().</span><span class="pln">navigateTo</span><span class="pun">(</span><span class="str">'/entries'</span><span class="pun">);</span></li><li class="L2"><span class="pln">element</span><span class="pun">(</span><span class="str">'table tbody'</span><span class="pun">).</span><span class="pln">query</span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">tbody</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">done</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">});</span></li><li class="L3"><span class="pln">element</span><span class="pun">(</span><span class="str">'table tbody a'</span><span class="pun">);</span></li><li class="L4"><span class="pln">element</span><span class="pun">(</span><span class="str">'.btn-danger'</span><span class="pun">).</span><span class="pln">click</span><span class="pun">();</span></li><li class="L5"><span class="pln">&nbsp;</span></li><li class="L6"><span class="pln">    </span><span class="com">// 删除实体2</span></li><li class="L7"><span class="pln">    </span><span class="com">// 这里的缩进排版用来表示递归调用的层数</span></li><li class="L8"><span class="pln">    browser</span><span class="pun">().</span><span class="pln">navigateTo</span><span class="pun">(</span><span class="str">'/entries'</span><span class="pun">);</span></li><li class="L9"><span class="pln">    element</span><span class="pun">(</span><span class="str">'table tbody'</span><span class="pun">).</span><span class="pln">query</span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">tbody</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">done</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">});</span></li><li class="L0"><span class="pln">    element</span><span class="pun">(</span><span class="str">'table tbody a'</span><span class="pun">);</span></li><li class="L1"><span class="pln">    element</span><span class="pun">(</span><span class="str">'.btn-danger'</span><span class="pun">).</span><span class="pln">click</span><span class="pun">();</span></li></ol></pre>
+    <h2 id="警告">警告</h2>
+    <p>ngScenario不能和通过调用angular.bootstrap来实现的手动初始化协同工作。你必须使用ng-app指令来启动应用程序。</p>
+	<div class="ad1">	
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 336 x 280 -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="9942648348"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>	
+	
+		</div>
+	</div>
+</div>
+<footer>
+	<p>Copyright © 2014 - 2018 <a href="http://www.angularjs.net.cn/">AngularJS中文网</a>, <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备15074038号-4</a>, All Rights Reserved.
+
+</p>
+</footer>
+<script type="text/javascript">
+    /*图+推广*/
+    /*建议投放在200*300以上的图片*/
+    var cpro_id = "u1948815";
+</script>
+<script type="text/javascript" src="./21.AngularJS 端对端测试_files/i.js.下载"></script>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?12ec03a62d55d8fb4b144b14ccedecec";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<script src="./21.AngularJS 端对端测试_files/jquery.js.下载"></script>
+<script src="./21.AngularJS 端对端测试_files/common.js.下载"></script>
+<script src="./21.AngularJS 端对端测试_files/bootstrap.min.js.下载"></script>
+
+</body></html>

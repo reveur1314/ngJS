@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://www.angularjs.net.cn/tutorial/5.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AngularJS 指令(Directives)</title>
+<link rel="icon" href="http://www.angularjs.net.cn/Application/Home/View/Public/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="./14.AngularJS 指令(Directives)_files/bootstrap.min.css">
+<link href="./14.AngularJS 指令(Directives)_files/prettify.css" rel="stylesheet">
+<script src="./14.AngularJS 指令(Directives)_files/hm.js.下载"></script><script src="./14.AngularJS 指令(Directives)_files/prettify.js.下载"></script>
+
+
+<link rel="stylesheet" href="./14.AngularJS 指令(Directives)_files/style.css">
+
+</head>
+<body onload="prettyPrint()">
+<div id="top">
+	<div class="container">
+	<div class="logo"><a href="http://www.angularjs.net.cn/">AngularJs中文网</a></div>
+	<ul>
+		<li><a href="http://www.angularjs.net.cn/">首页</a></li>
+		<li><a href="http://www.angularjs.net.cn/tutorial/">AngularJS 教程</a></li>
+		
+		<li><a href="http://www.angularjs.net.cn/phonecat/">AngularJS PhoneCat</a></li>
+		<li><a href="http://www.angularjs.net.cn/download/">AngularJS 下载</a></li>
+		<li><a href="http://www.angularjs.net.cn/api/">AngularJS api</a></li>
+		<li style="display:none;"><a href="http://www.angularjs.net.cn/angular-seed">AngularJS Seed</a></li>
+	<li><a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=iuvvbh9n" onclick="_hmt.push([&#39;_trackEvent&#39;, &#39;nav&#39;, &#39;click&#39;, &#39;Ecs&#39;])" target="_blank">Ecs服务器</a></li>
+	
+
+	
+	</ul>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+<ul>
+	<li><a href="http://www.angularjs.net.cn/tutorial/1.html">简介（Introduction）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/16.html">引导程序（Bootstrap）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/18.html">概念概述(Conceptual Overview)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/15.html">Html编译（HTML Compiler）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/10.html">数据绑定（Data Binding）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/2.html">控制器(Controllers)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/19.html">服务（Services）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/12.html">作用域(Scope)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/17.html">依赖注入(Dependency Injection)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/13.html">模板（Templates）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/11.html">使用css(Working With CSS)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/8.html">过滤器（Filters）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/4.html">表单(Forms)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/5.html">指令(Directives)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/20.html">Components</a></li><li><a href="http://www.angularjs.net.cn/tutorial/21.html">Component Router</a></li><li><a href="http://www.angularjs.net.cn/tutorial/7.html">动画(Animations)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/6.html">模块(Modules)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/3.html">表达式(Expressions)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/9.html">供应者（Providers）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/14.html">$location</a></li><li><a href="http://www.angularjs.net.cn/tutorial/22.html">单元测试</a></li><li><a href="http://www.angularjs.net.cn/tutorial/23.html">端对端测试</a></li></ul>
+<div id="ad">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 160x600 -->
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="1088261149"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+		<div class="col-md-9">
+			<div class="page-header"><h1>AngularJS 指令(Directives)</h1></div>
+
+<div style="margin-bottom:10px;">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 728x90 --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="2639707541"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 728x90 --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="2639707541"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+			
+			
+
+<h2>创建自定义指令</h2>
+<div class="alert alert-warning">
+<strong>注意:</strong> 这篇指南是面向那些已经对AngularJS有了基础并比较熟悉的开发者。
+如果你是刚开始接触Angular，我们建议你先看看<a href="http://www.angularjs.net.cn/tutorial/tutorial/index">入门指南</a>
+如果你在寻找<strong>指令API</strong>，请移步这里<a href="http://www.angularjs.net.cn/tutorial/api/ng.$compile"><code><code><span class="pln">$compile</span></code></code></a>.
+</div>
+
+
+<p>此文解释了在你的AngularJS应用里，何时该创建自定义指令以及如何去实现它们。</p>
+
+<hr>
+<h3>"指令"是什么?</h3>
+<p>简单点说，指令就是一些附加在HTML元素上的自定义标记（例如：属性，元素，或css类），它告诉AngularJS的<strong>HTML编译器</strong> (<a href="http://www.angularjs.net.cn/tutorial/api/ng.$compile"><code><code><span class="pln">$compile</span></code></code></a>)
+在元素上附加某些指定的行为，甚至操作DOM、改变DOM元素，以及它的各级子节点。</p>
+<p>Angular内置了一整套指令，如<code><span class="pln">ngBind</span></code>, <code><span class="pln">ngModel</span></code>, 和<code><span class="pln">ngView</span></code>。
+就像你可以创建控制器和服务那样，你也可以创建自己的指令来让Angular使用。
+当Angular <a href="http://www.angularjs.net.cn/tutorial/guide/bootstrap">启动器</a>引导你的应用程序时，
+<a href="http://www.angularjs.net.cn/tutorial/guide/compiler">HTML编译器</a>就会遍历整个DOM，以匹配DOM元素里的指令。</p>
+<div class="alert alert-info">
+<strong>对于HTML模板来说，"编译"意味着什么?</strong>
+
+对于AngularJS来说，“编译”意味着把监听事件绑定在HTML元素上，使其可以交互。
+我们使用"编译"这个术语的原因就在于，把指令关联到DOM上的这种递归操作非常类似于
+<a href="http://en.wikipedia.org/wiki/Compiled_languages">编译式语言</a>编译源代码的过程。
+</div>
+
+<hr>
+<h3>指令的匹配</h3>
+<p>在开始写指令之前，我们需要知道angular的<a href="http://www.angularjs.net.cn/tutorial/guide/compiler">HTML编译器</a>
+是怎样决定该在什么时候调用一个指令的。</p>
+<p>在接下来的例子里，我们可以说元素<code><span class="tag">&lt;input&gt;</span></code> <strong>匹配</strong>了<code><span class="pln">ngModel</span></code> 的指令。</p>
+<pre><code class="lang-javascript"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"foo"</span><span class="tag">&gt;</span></code></pre>
+<p>下面的语法同样<strong>匹配</strong> <code><span class="pln">ngModel</span></code>:</p>
+<pre><code class="lang-javascript"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">data-ng:model</span><span class="pun">=</span><span class="atv">"foo"</span><span class="tag">&gt;</span></code></pre>
+<p>Angular把一个元素的标签和属性名字进行<strong>规范化</strong>，来决定哪个元素匹配哪个指令。
+我们通常用区分大小写的<strong>规范化</strong>命名方式(比如<code><span class="pln">ngModel</span></code>)来识别指令。
+然而，HTML是区分大小的，所以我们在DOM中使用的指令只能用小写的方式命名，
+通常使用<a href="http://en.wikipedia.org/wiki/Letter_case#Computers">破折号间隔</a>的形式(比如：<code><span class="pln">ng</span><span class="pun">-</span><span class="pln">model</span></code>).</p>
+<p><strong>规范化</strong>的过程如下所示：</p>
+<ol>
+<li>从元素或属性的名字前面去掉<code><span class="pln">x</span><span class="pun">-</span></code> and <code><span class="pln">data</span><span class="pun">-</span></code></li>
+<li>从<code><span class="pun">:</span></code>, <code><span class="pun">-</span></code>, 或 <code><span class="pln">_</span></code>分隔的形式转换成<code><span class="pun">小驼峰命名法(</span><span class="pln">camelCase</span><span class="pun">)</span></code>.</li>
+</ol>
+<p>下面的例子是对于指令<code><span class="pln">ngBind</span></code>的匹配都是等价的:</p>
+<h3>源码</h3>
+
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+<li class="active"><a href="http://www.angularjs.net.cn/tutorial/5.html#html1" role="tab" data-toggle="tab">index.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html#js1" role="tab" data-toggle="tab">script.js</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html#test1" role="tab" data-toggle="tab">ngScenario e2e test</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="html1">
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"docsBindExample"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"Ctrl1"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      Hello </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">'name'</span><span class="tag">&gt;</span><span class="pln"> </span><span class="tag">&lt;hr/&gt;</span></li><li class="L9"><span class="pln">      </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng-bind</span><span class="pun">=</span><span class="atv">"name"</span><span class="tag">&gt;&lt;/span&gt;</span><span class="pln"> </span><span class="tag">&lt;br/&gt;</span></li><li class="L0"><span class="pln">      </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng:bind</span><span class="pun">=</span><span class="atv">"name"</span><span class="tag">&gt;&lt;/span&gt;</span><span class="pln"> </span><span class="tag">&lt;br/&gt;</span></li><li class="L1"><span class="pln">      </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng_bind</span><span class="pun">=</span><span class="atv">"name"</span><span class="tag">&gt;&lt;/span&gt;</span><span class="pln"> </span><span class="tag">&lt;br/&gt;</span></li><li class="L2"><span class="pln">      </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">data-ng-bind</span><span class="pun">=</span><span class="atv">"name"</span><span class="tag">&gt;&lt;/span&gt;</span><span class="pln"> </span><span class="tag">&lt;br/&gt;</span></li><li class="L3"><span class="pln">      </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">x-ng-bind</span><span class="pun">=</span><span class="atv">"name"</span><span class="tag">&gt;&lt;/span&gt;</span><span class="pln"> </span><span class="tag">&lt;br/&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L6"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+</div>
+<div class="tab-pane" id="js1">
+<pre class="prettyprint linenums" ng-set-text="script.js-247"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'docsBindExample'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span></li><li class="L1"><span class="pln">  </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'Ctrl1'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="typ">Ctrl1</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Max Karl Ernst Ludwig Planck (April 23, 1858 – October 4, 1947)'</span><span class="pun">;</span></li><li class="L3"><span class="pln">  </span><span class="pun">});</span></li></ol></pre>
+</div>
+<div class="tab-pane" id="test1">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-249"><ol class="linenums"><li class="L0"><span class="pln">it</span><span class="pun">(</span><span class="str">'should show off bindings'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">  expect</span><span class="pun">(</span><span class="pln">element</span><span class="pun">(</span><span class="str">'div[ng-controller="Ctrl1"] span[ng-bind]'</span><span class="pun">).</span><span class="pln">text</span><span class="pun">())</span></li><li class="L2"><span class="pln">    </span><span class="pun">.</span><span class="pln">toBe</span><span class="pun">(</span><span class="str">'Max Karl Ernst Ludwig Planck (April 23, 1858 – October 4, 1947)'</span><span class="pun">);</span></li><li class="L3"><span class="pun">});</span></li></ol></pre>
+
+</div>
+</div></div>
+<h3>效果</h3>
+<div class="well doc-example-live animate-container ng-scope" ng-embed-app="docsBindExample" ng-set-html="index.html-248" ng-eval-javascript="script.js-247"><div ng-controller="Ctrl1" class="ng-scope">
+  Hello <input ng-model="name" class="ng-pristine ng-valid"> <hr>
+  <span ng-bind="name" class="ng-binding">Max Karl Ernst Ludwig Planck (April 23, 1858 – October 4, 1947)</span> <br>
+  <span ng:bind="name" class="ng-binding">Max Karl Ernst Ludwig Planck (April 23, 1858 – October 4, 1947)</span> <br>
+  <span ng_bind="name" class="ng-binding">Max Karl Ernst Ludwig Planck (April 23, 1858 – October 4, 1947)</span> <br>
+  <span data-ng-bind="name" class="ng-binding">Max Karl Ernst Ludwig Planck (April 23, 1858 – October 4, 1947)</span> <br>
+  <span x-ng-bind="name" class="ng-binding">Max Karl Ernst Ludwig Planck (April 23, 1858 – October 4, 1947)</span> <br>
+</div>
+</div>
+<div class="alert alert-success">
+<strong>最佳实践:</strong> 建议使用破折号分隔符的方式(比如<code><span class="pln">ng</span><span class="pun">-</span><span class="pln">bind</span></code> for <code><span class="pln">ngBind</span></code>).
+如果你想支持HTML验证工具，你可以加前缀<code><span class="pln">data</span></code>.(比如把<code><span class="pln">ngBind</span></code>写成<code><span class="pln">data</span><span class="pun">-</span><span class="pln">ng</span><span class="pun">-</span><span class="pln">bind</span></code>).
+其它的形式虽然也是合法的，但都是因为历史遗留原因而支持的，我们建议不要那么用。
+</div>
+
+<p><code><span class="pln">$compile</span></code>(编译) 可以基于元素名字、属性、类名和注释来匹配指令的。Angular提供的所有指令都支持元素名、属性、类名和注释的形式。</p>
+<p>下面的例子给出了在模板里引用指令的各种方式：(在这个例子 里是<code><span class="pln">myDir</span></code> ):</p>
+<pre><code class="lang-html"><span class="tag">&lt;my-dir&gt;&lt;/my-dir&gt;</span><span class="pln">
+</span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">my-dir</span><span class="pun">=</span><span class="atv">"exp"</span><span class="tag">&gt;&lt;/span&gt;</span><span class="pln">
+</span><span class="com">&lt;!-- directive: my-dir exp --&gt;</span><span class="pln">
+</span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"my-dir: exp;"</span><span class="tag">&gt;&lt;/span&gt;</span></code></pre>
+<div class="alert alert-success">
+<strong>最佳实践:</strong> 最好通过标签名和属性来使用指令而不要通过注释和类名。这样做可以更容易地看出一个元素是跟哪个指令匹配的。
+</div>
+
+<div class="alert alert-success">
+<strong>最佳实践:</strong> 通常注释式命名式指令使用在如下情景：某些指令需要跨越多个元素，但是受DOM API的限制，无法跨越多个元素(比如<code><span class="tag">&lt;table&gt;</span></code>元素)。
+AngularJS 1.2 引入了<a href="http://www.angularjs.net.cn/tutorial/api/ng.directive:ngRepeat"><code><code><span class="pln">ng</span><span class="pun">-</span><span class="pln">repeat</span><span class="pun">-</span><span class="pln">start</span></code><span class="pun">和</span><code><span class="pln">ng</span><span class="pun">-</span><span class="pln">repeat</span><span class="pun">-</span><span class="kwd">end</span></code></code></a>指令，作为更好的解决方案。
+建议开发者使用这种方式，而不要用“自定义注释”形式的指令。
+</div>
+
+
+
+<h4 id="创建自定义指令_demo_文本-和-属性-绑定">文本 和 属性 绑定</h4>
+<p>在编译的过程中<a href="http://www.angularjs.net.cn/tutorial/api/ng.$compile"><code><span class="pun">编译器</span></code></a>会使用 <a href="http://www.angularjs.net.cn/tutorial/api/ng.$interpolate"><code><span class="pln">$interpolate</span></code></a>服务去匹配文本和属性，以查看它是否含有内嵌的表达式。
+这些表达式会作为<a href="http://www.angularjs.net.cn/tutorial/api/ng.$rootScope.Scope#methods_$watch"><code><span class="pun">监控</span></code></a>的值来注册，
+并作为<a href="http://www.angularjs.net.cn/tutorial/api/ng.$rootScope.Scope#methods_$digest"><code><span class="pun">摘要</span></code></a>循环的一部分来进行实时更新。</p>
+<p>下面是展开(interpolation)绑定的一个例子</p>
+<pre><code class="lang-html"><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">ng-href</span><span class="pun">=</span><span class="atv">"img/{{username}}.jpg"</span><span class="tag">&gt;</span><span class="pln">Hello {{username}}!</span><span class="tag">&lt;/a&gt;</span></code></pre>
+<h4 id="创建自定义指令_demo_-属性绑定"><code><span class="pln">ngAttr</span></code> 属性绑定</h4>
+<p>Web浏览器有时候对于属性的合法性检查简直是吹毛求疵。</p>
+<p>比如，考虑下面的模块：</p>
+<pre><code class="lang-html"><span class="tag">&lt;svg&gt;</span><span class="pln">
+  </span><span class="tag">&lt;circle</span><span class="pln"> </span><span class="atn">cx</span><span class="pun">=</span><span class="atv">"{{cx}}"</span><span class="tag">&gt;&lt;/circle&gt;</span><span class="pln">
+</span><span class="tag">&lt;/svg&gt;</span></code></pre>
+<p class="ng-binding">使用这样的写法时，我们会发现控制台中报错Error: Invalid value for attribute cx="".
+这是由于SVG DOM API的限制，你不能简单的写为cx="".</p>
+<p>使用ng-attr-cx 可以解决这个问题</p>
+<p>如果一个绑定的属性使用ngAttr前缀(或者ng-attr)进行声明, 那它在绑定的时候就会被应用到相应的未前缀化的属性上，
+这种方式允许你绑定到需要马上被浏览器处理的属性上面(比如SVG元素的circle[cx]属性)。</p>
+<p>所以，我们可以这样写来修复这个问题:</p>
+<pre><code class="lang-html"><span class="tag">&lt;svg&gt;</span><span class="pln">
+  </span><span class="tag">&lt;circle</span><span class="pln"> </span><span class="atn">ng-attr-cx</span><span class="pun">=</span><span class="atv">"{{cx}}"</span><span class="tag">&gt;&lt;/circle&gt;</span><span class="pln">
+</span><span class="tag">&lt;/svg&gt;</span></code></pre>
+<hr>
+<h3 id="创建自定义指令_创建指令">创建指令</h3>
+<p>首先先谈一下注册指令API的API。</p>
+<p>和控制器一样，指令也是注册在模块上的。
+要注册一个指令，你可以用 <code><span class="kwd">module</span><span class="pun">.</span><span class="pln">directive</span></code> API。
+<code><span class="kwd">module</span><span class="pun">.</span><span class="pln">directive</span></code> 接受规范化<a href="http://www.angularjs.net.cn/tutorial/guide/directive#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4_%E6%8C%87%E4%BB%A4%E7%9A%84%E5%8C%B9%E9%85%8D">normalized</a>
+的指令名字和<strong>工厂方法</strong>。此工厂方法应该返回一个带有不同选项的对象来告诉
+编译器<code><span class="pln">$compile</span></code>此指令被匹配上该做些什么。</p>
+<p>工厂函数仅在 <a href="http://www.angularjs.net.cn/tutorial/api/ng.$compile"><code><span class="pun">编译器</span></code></a> 第一次匹配到指令的时候调用一次.
+你可以在这里进行初始化的工作。
+该函数使用<a href="http://www.angularjs.net.cn/tutorial/api/AUTO.$injector#methods_invoke"><code><span class="pln">$injector</span><span class="pun">.</span><span class="pln">invoke</span></code></a>调用，所以它可以像控制器一样进行依赖注入。</p>
+<div class="alert alert-success">
+<strong>最佳实践:</strong> 尽量返回一个对象，而不要只返回一个函数。
+</div>
+
+
+<p>接下来，我们先会讲解一些常见的例子，然后再深入讲解不同的选项项的原理和编译过程。</p>
+<div class="alert alert-success">
+<strong>最佳实践:</strong> 为了防止与未来的标准冲突，最好是前缀化你自己的指令名字。
+比如你创建一个指令<code><span class="tag">&lt;carousel&gt;</span></code> ，如果HTML7也引入相同的元素它可能会产生冲突。
+推荐使用两三个单词的前缀(比如btfCarousel)，同样，不能使用ng或者其他可能与angular未来版本起冲突的前缀。
+</div>
+
+<p>下面的例子我们将会使用作为 <code><span class="kwd">my</span></code> 前缀 （例如，<code><span class="pln">myCustomer</span></code>）</p>
+<h4 id="创建自定义指令_创建指令_模板扩展指令">模板扩展指令</h4>
+<p>当你有大量代表客户信息的模板。这个模板在你的代码中重复了很多次，当你改变一个地方的时候，
+你不得不在其他地方同时改动，这时候，你就要使用指令来简化你的模板。</p>
+<p>我们来创建一个指令，简单的使用静态模板来替换它的内容。</p>
+<h3>源码</h3>
+
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+<li class="active"><a href="http://www.angularjs.net.cn/tutorial/5.html#html2" role="tab" data-toggle="tab">index.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html#js2" role="tab" data-toggle="tab">script.js</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="html2">
+<pre class="prettyprint linenums" ng-set-text="index.html-251" ng-html-wrap="docsSimpleDirective angular.js script.js"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"docsSimpleDirective"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"Ctrl"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">my-customer</span><span class="tag">&gt;&lt;/div&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L0"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L1"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="js2">
+<pre class="prettyprint linenums ng-binding" ng-set-text="script.js-250"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'docsSimpleDirective'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span></li><li class="L1"><span class="pln">  </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'Ctrl'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">customer </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">      name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Naomi'</span><span class="pun">,</span></li><li class="L4"><span class="pln">      address</span><span class="pun">:</span><span class="pln"> </span><span class="str">'1600 Amphitheatre'</span></li><li class="L5"><span class="pln">    </span><span class="pun">};</span></li><li class="L6"><span class="pln">  </span><span class="pun">})</span></li><li class="L7"><span class="pln">  </span><span class="pun">.</span><span class="pln">directive</span><span class="pun">(</span><span class="str">'myCustomer'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li><li class="L9"><span class="pln">      </span><span class="kwd">template</span><span class="pun">:</span><span class="pln"> </span><span class="str">'姓名:  地址: '</span></li><li class="L0"><span class="pln">    </span><span class="pun">};</span></li><li class="L1"><span class="pln">  </span><span class="pun">});</span></li></ol></pre>
+
+</div>
+</div></div>
+
+<h3 id="创建自定义指令_demo">Demo</h3>
+<div class="well doc-example-live animate-container ng-scope" ng-embed-app="docsSimpleDirective" ng-set-html="index.html-251" ng-eval-javascript="script.js-250"><div ng-controller="Ctrl" class="ng-scope">
+  <div my-customer="" class="ng-binding">姓名: Naomi 地址: 1600 Amphitheatre</div>
+</div>
+</div>
+<p>注意我们在这里做了一些绑定，<code><span class="pln">$compile</span></code> 编译完链接之后，它将会匹配子元素的指令，这意味着你可以组合一些指令。
+接下来我们看看下面的<a href="http://www.angularjs.net.cn/tutorial/guide/directive#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4_demo_%E5%88%9B%E5%BB%BA%E7%9B%B8%E4%BA%92%E9%80%9A%E4%BF%A1%E7%9A%84%E6%8C%87%E4%BB%A4">例子</a>是怎样做的</p>
+<p>这个例子中，我们直接在<code><span class="kwd">template</span></code>选项项里写上模板，但是随着模板大小的增加，这样做非常不优雅。</p>
+<div class="alert alert-success">
+<strong>最佳实践:</strong> 除非你的模板非常小，否则最好分割成单独的hmtl文件，然后使用<code><span class="pln">templateUrl</span></code>选项来加载。
+</div>
+
+<p>如果你熟悉<code><span class="pln">ngInclude</span></code>，那么会发现<code><span class="pln">templateUrl</span></code>的作用与之类似，下面是用<code><span class="pln">templateUrl</span></code>选项的同一个例子：</p>
+
+<h3>源码</h3>
+
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+<li class="active"><a href="http://www.angularjs.net.cn/tutorial/5.html#index3" role="tab" data-toggle="tab">index.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html#my3" role="tab" data-toggle="tab">my-customer.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html#js3" role="tab" data-toggle="tab">script.js</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="index3">
+<pre class="prettyprint linenums" ng-set-text="index.html-253" ng-html-wrap="docsTemplateUrlDirective angular.js script.js"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"docsTemplateUrlDirective"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"Ctrl"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">my-customer</span><span class="tag">&gt;&lt;/div&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L0"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L1"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="my3">
+<pre class="prettyprint linenums ng-binding" ng-set-text="my-customer.html"><ol class="linenums"><li class="L0"><span class="typ">Name</span><span class="pun">:</span><span class="pln">  </span><span class="typ">Address</span><span class="pun">:</span><span class="pln"> </span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="js3">
+<pre class="prettyprint linenums" ng-set-text="script.js-252"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'docsTemplateUrlDirective'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span></li><li class="L1"><span class="pln">  </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'Ctrl'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">customer </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">      name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Naomi'</span><span class="pun">,</span></li><li class="L4"><span class="pln">      address</span><span class="pun">:</span><span class="pln"> </span><span class="str">'1600 Amphitheatre'</span></li><li class="L5"><span class="pln">    </span><span class="pun">};</span></li><li class="L6"><span class="pln">  </span><span class="pun">})</span></li><li class="L7"><span class="pln">  </span><span class="pun">.</span><span class="pln">directive</span><span class="pun">(</span><span class="str">'myCustomer'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li><li class="L9"><span class="pln">      templateUrl</span><span class="pun">:</span><span class="pln"> </span><span class="str">'my-customer.html'</span></li><li class="L0"><span class="pln">    </span><span class="pun">};</span></li><li class="L1"><span class="pln">  </span><span class="pun">});</span></li></ol></pre>
+
+</div>
+</div></div><h3 id="创建自定义指令_demo">Demo</h3>
+<div class="well doc-example-live animate-container ng-scope" ng-embed-app="docsTemplateUrlDirective" ng-set-html="index.html-253" ng-eval-javascript="script.js-252"><div ng-controller="Ctrl" class="ng-scope">
+  <div my-customer="" class="ng-binding">
+    Name: Naomi Address: 1600 Amphitheatre
+  </div>
+</div>
+</div>
+<p>非常好，但是如果我们想让我们的指令匹配标签名呢？ 如果我们只是简单的把元素放在hmtl上面，会发现没有效果。</p>
+<div class="alert alert-waring">
+<strong>注意:</strong> 创建指令的时候，默认仅使用属性的方式。为了创建一个能由元素名字触发的指令，你需要用到<code><span class="pln">restrict</span></code>选项。
+</div>
+
+<p>选项<code><span class="pln">restrict</span></code>可以设置成以下方式：</p>
+<ul>
+<li><code><span class="str">'A'</span></code> - 仅匹配属性名</li>
+<li><code><span class="str">'E'</span></code> - 仅匹配元素名</li>
+<li><code><span class="str">'AE'</span></code> - 既匹配属性名又匹配元素名</li>
+</ul>
+<p>下面把例子的restrict选项选项成<code><span class="pln">restrict</span><span class="pun">:</span><span class="pln"> </span><span class="str">'E'</span></code>。</p>
+
+<h3>源码</h3>
+
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+<li class="active"><a href="http://www.angularjs.net.cn/tutorial/5.html#index4" role="tab" data-toggle="tab">index.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html#my4" role="tab" data-toggle="tab">my-customer.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html#js4" role="tab" data-toggle="tab">script.js</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="index4">
+<pre class="prettyprint linenums" ng-set-text="index.html-255" ng-html-wrap="docsRestrictDirective angular.js script.js"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"docsRestrictDirective"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"Ctrl"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;my-customer&gt;&lt;/my-customer&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L0"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L1"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="my4">
+<pre class="prettyprint linenums ng-binding" ng-set-text="my-customer.html"><ol class="linenums"><li class="L0"><span class="typ">Name</span><span class="pun">:</span><span class="pln">  </span><span class="typ">Address</span><span class="pun">:</span><span class="pln"> </span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="js4">
+<pre class="prettyprint linenums" ng-set-text="script.js-254"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'docsRestrictDirective'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span></li><li class="L1"><span class="pln">  </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'Ctrl'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">customer </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">      name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Naomi'</span><span class="pun">,</span></li><li class="L4"><span class="pln">      address</span><span class="pun">:</span><span class="pln"> </span><span class="str">'1600 Amphitheatre'</span></li><li class="L5"><span class="pln">    </span><span class="pun">};</span></li><li class="L6"><span class="pln">  </span><span class="pun">})</span></li><li class="L7"><span class="pln">  </span><span class="pun">.</span><span class="pln">directive</span><span class="pun">(</span><span class="str">'myCustomer'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li><li class="L9"><span class="pln">      restrict</span><span class="pun">:</span><span class="pln"> </span><span class="str">'E'</span><span class="pun">,</span></li><li class="L0"><span class="pln">      templateUrl</span><span class="pun">:</span><span class="pln"> </span><span class="str">'my-customer.html'</span></li><li class="L1"><span class="pln">    </span><span class="pun">};</span></li><li class="L2"><span class="pln">  </span><span class="pun">});</span></li></ol></pre>
+
+</div>
+</div></div><h3 id="创建自定义指令_demo">Demo</h3>
+<div class="well doc-example-live animate-container ng-scope" ng-embed-app="docsRestrictDirective" ng-set-html="index.html-255" ng-eval-javascript="script.js-254"><div ng-controller="Ctrl" class="ng-scope">
+  <my-customer class="ng-binding">
+    Name: Naomi Address: 1600 Amphitheatre
+  </my-customer>
+</div>
+</div>
+<p>restrict属性的详情参阅 <a href="http://www.angularjs.net.cn/tutorial/api/ng.$compile#description_comprehensive-directive-api_directive-definition-object"><code><code><span class="pln">restrict</span></code></code></a>。
+关于指令定义的API文档请参阅 <a href="http://www.angularjs.net.cn/tutorial/api/ng.$compile#description_comprehensive-directive-api_directive-definition-object"><code><span class="pln">API docs</span></code></a>.</p>
+<div class="alert alert-info">
+<strong>什么情况下该用元素名，什么情况下该用属性名？</strong>
+
+当创建一个含有自己模板的组件的时候，建议使用元素名，常见情况是，当你想为你的模板创建一个DSL（特定领域语言）的时候。如果仅仅想为已有的元素添加功能，建议使用属性名.
+</div>
+
+<p>使用元素名做为myCustomer指令是非常正确的决定，因为你不是用一些'customer'行为来装饰这个元素，而是定义一个具有自定义行为的元素作为customer组件</p>
+<hr>
+<h4>给指令一个独立作用域(isolate scope)</h4>
+<p>上面我们的<code><span class="pln">myCustomer</span></code>指令已经非常好了，但是它有个致命的缺陷，我们在给定的作用域内仅能使用一次。</p>
+<p>它现在的实现是，我们每次重用该指令的时候都要为它新创一个控制器.</p>
+<h3>源码</h3>
+
+<div class="tabbable" role="tablist">
+<ul class="nav nav-tabs">
+	<li class="active"><a href="http://www.angularjs.net.cn/tutorial/5.html#index5" role="tab" data-toggle="tab">index.html</a></li>
+	<li><a href="http://www.angularjs.net.cn/tutorial/5.html#my5" role="tab" data-toggle="tab">my-customer.html</a></li>
+	<li><a href="http://www.angularjs.net.cn/tutorial/5.html#js5" role="tab" data-toggle="tab">script.js</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="index5">
+<pre class="prettyprint linenums" ng-set-text="index.html-257" ng-html-wrap="docsScopeProblemExample angular.js script.js"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"docsScopeProblemExample"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"NaomiCtrl"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;my-customer&gt;&lt;/my-customer&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L0"><span class="pln">    </span><span class="tag">&lt;hr&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"IgorCtrl"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">      </span><span class="tag">&lt;my-customer&gt;&lt;/my-customer&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L4"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L5"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+
+    <div ng-controller="NaomiCtrl">
+      <my-customer></my-customer>
+    </div>
+    <hr>
+    <div ng-controller="IgorCtrl">
+      <my-customer></my-customer>
+    </div>
+  
+</div>
+<div class="tab-pane" title="my-customer.html">
+<pre class="prettyprint linenums ng-binding" ng-set-text="my-customer.html"><ol class="linenums"><li class="L0"><span class="typ">Name</span><span class="pun">:</span><span class="pln">  </span><span class="typ">Address</span><span class="pun">:</span><span class="pln"> </span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="js5">
+<pre class="prettyprint linenums" ng-set-text="script.js-256"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'docsScopeProblemExample'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span></li><li class="L1"><span class="pln">  </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'NaomiCtrl'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">customer </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">      name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Naomi'</span><span class="pun">,</span></li><li class="L4"><span class="pln">      address</span><span class="pun">:</span><span class="pln"> </span><span class="str">'1600 Amphitheatre'</span></li><li class="L5"><span class="pln">    </span><span class="pun">};</span></li><li class="L6"><span class="pln">  </span><span class="pun">})</span></li><li class="L7"><span class="pln">  </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'IgorCtrl'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">customer </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li><li class="L9"><span class="pln">      name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Igor'</span><span class="pun">,</span></li><li class="L0"><span class="pln">      address</span><span class="pun">:</span><span class="pln"> </span><span class="str">'123 Somewhere'</span></li><li class="L1"><span class="pln">    </span><span class="pun">};</span></li><li class="L2"><span class="pln">  </span><span class="pun">})</span></li><li class="L3"><span class="pln">  </span><span class="pun">.</span><span class="pln">directive</span><span class="pun">(</span><span class="str">'myCustomer'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li><li class="L5"><span class="pln">      restrict</span><span class="pun">:</span><span class="pln"> </span><span class="str">'E'</span><span class="pun">,</span></li><li class="L6"><span class="pln">      templateUrl</span><span class="pun">:</span><span class="pln"> </span><span class="str">'my-customer.html'</span></li><li class="L7"><span class="pln">    </span><span class="pun">};</span></li><li class="L8"><span class="pln">  </span><span class="pun">});</span></li></ol></pre>
+
+    
+</div>
+</div></div><h3 id="创建自定义指令_demo">Demo</h3>
+<div class="well doc-example-live animate-container ng-scope" ng-embed-app="docsScopeProblemExample" ng-set-html="index.html-257" ng-eval-javascript="script.js-256"><div ng-controller="NaomiCtrl" class="ng-scope">
+  <my-customer class="ng-binding">
+    Name: Naomi Address: 1600 Amphitheatre
+  </my-customer>
+</div>
+<hr>
+<div ng-controller="IgorCtrl" class="ng-scope">
+  <my-customer class="ng-binding">
+    Name: Igor Address: 123 Somewhere
+  </my-customer>
+</div>
+</div>
+<p>这显然不是一个好的解决方案。</p>
+<p>我们想要做的是能够把指令的作用域与外部的作用域隔离开来，然后映射外部的作用域到指令内部的作用域。
+可以通过创建<strong>独立作用域(isolate scope)</strong>来达到这个目的。我们可以使用指令的<code><span class="pln">scope</span></code>来选项它:</p>
+
+<h3>源码</h3>
+
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+<li class="active"><a href="http://www.angularjs.net.cn/tutorial/5.html#index8" role="tab" data-toggle="tab">index.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html#my8" role="tab" data-toggle="tab">my-customer-iso.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html#js8" role="tab" data-toggle="tab">script.js</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="index8">
+<pre class="prettyprint linenums" ng-set-text="index.html-259" ng-html-wrap="docsIsolateScopeDirective angular.js script.js"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"docsIsolateScopeDirective"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"Ctrl"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;my-customer</span><span class="pln"> </span><span class="atn">info</span><span class="pun">=</span><span class="atv">"naomi"</span><span class="tag">&gt;&lt;/my-customer&gt;</span></li><li class="L9"><span class="pln">      </span><span class="tag">&lt;hr&gt;</span></li><li class="L0"><span class="pln">      </span><span class="tag">&lt;my-customer</span><span class="pln"> </span><span class="atn">info</span><span class="pun">=</span><span class="atv">"igor"</span><span class="tag">&gt;&lt;/my-customer&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L3"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="my8">
+<pre class="prettyprint linenums ng-binding" ng-set-text="my-customer-iso.html"><ol class="linenums"><li class="L0"><span class="typ">Name</span><span class="pun">:</span><span class="pln">  </span><span class="typ">Address</span><span class="pun">:</span><span class="pln"> </span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="js8">
+<pre class="prettyprint linenums" ng-set-text="script.js-258"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'docsIsolateScopeDirective'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span></li><li class="L1"><span class="pln">  </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'Ctrl'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">naomi </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Naomi'</span><span class="pun">,</span><span class="pln"> address</span><span class="pun">:</span><span class="pln"> </span><span class="str">'1600 Amphitheatre'</span><span class="pln"> </span><span class="pun">};</span></li><li class="L3"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">igor </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Igor'</span><span class="pun">,</span><span class="pln"> address</span><span class="pun">:</span><span class="pln"> </span><span class="str">'123 Somewhere'</span><span class="pln"> </span><span class="pun">};</span></li><li class="L4"><span class="pln">  </span><span class="pun">})</span></li><li class="L5"><span class="pln">  </span><span class="pun">.</span><span class="pln">directive</span><span class="pun">(</span><span class="str">'myCustomer'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li><li class="L7"><span class="pln">      restrict</span><span class="pun">:</span><span class="pln"> </span><span class="str">'E'</span><span class="pun">,</span></li><li class="L8"><span class="pln">      scope</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L9"><span class="pln">        customerInfo</span><span class="pun">:</span><span class="pln"> </span><span class="str">'=info'</span></li><li class="L0"><span class="pln">      </span><span class="pun">},</span></li><li class="L1"><span class="pln">      templateUrl</span><span class="pun">:</span><span class="pln"> </span><span class="str">'my-customer-iso.html'</span></li><li class="L2"><span class="pln">    </span><span class="pun">};</span></li><li class="L3"><span class="pln">  </span><span class="pun">});</span></li></ol></pre>
+
+</div>
+</div></div><h3 id="创建自定义指令_demo">Demo</h3>
+<div class="well doc-example-live animate-container ng-scope" ng-embed-app="docsIsolateScopeDirective" ng-set-html="index.html-259" ng-eval-javascript="script.js-258"><div ng-controller="Ctrl" class="ng-scope">
+  <my-customer info="naomi" class="ng-binding ng-isolate-scope">
+    Name: Naomi Address: 1600 Amphitheatre
+  </my-customer>
+  <hr>
+  <my-customer info="igor" class="ng-binding ng-isolate-scope">
+    Name: Igor Address: 123 Somewhere
+  </my-customer>
+</div>
+</div>
+<p>首先看<code><span class="pln">index</span><span class="pun">.</span><span class="pln">html</span></code>,第一个<code><span class="tag">&lt;my-customer&gt;</span></code> 标签绑定了<code><span class="pln">naomi</span></code>(在控制的作用域[controller's scope]上暴露出来的)值到属性<code><span class="pln">info</span></code>上,
+第二个是绑定<code><span class="pln">igor</span></code>到 <code><span class="pln">info</span></code>.</p>
+<p>现在看看scope是如何选项的:</p>
+<pre><code class="lang-javascript"><span class="com">//...</span><span class="pln">
+scope</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  customerInfo</span><span class="pun">:</span><span class="pln"> </span><span class="str">'=info'</span><span class="pln">
+</span><span class="pun">},</span><span class="pln">
+</span><span class="com">//...</span></code></pre>
+<p><strong>作用域选项</strong> 是一组为每个独立作用域绑定的属性组合.在此例子中它只有一个属性：</p>
+<ul>
+<li>它的名字(<code><span class="pln">customerInfo</span></code>) 对应于指令里的<strong>独立作用域</strong>的<code><span class="pln">customerInfo</span></code>属性.</li>
+<li>它的值 (<code><span class="pun">=</span><span class="pln">info</span></code>) 告诉<code><span class="pln">$compile</span></code> 这是绑定了所在元素的 <code><span class="pln">info</span></code> 属性。</li>
+</ul>
+<div class="alert alert-warning">
+<strong>注意:</strong> 指令作用域选项中的'=attr'属性名是被规范化过后的名字.
+比如要绑定<code><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">bind-to-this</span><span class="pun">=</span><span class="atv">"thing"</span><span class="tag">&gt;</span></code>,你就要使用'=bindToThis'的绑定。
+</div>
+
+<p>如果属性名和你想要绑定的值的名字一样，你可以使用这样的快捷语法:</p>
+<pre><code class="lang-javascript"><span class="pun">...</span><span class="pln">
+scope</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="com">// 等价于'=customer'</span><span class="pln">
+  customer</span><span class="pun">:</span><span class="pln"> </span><span class="str">'='</span><span class="pln">
+</span><span class="pun">},</span><span class="pln">
+</span><span class="pun">...</span></code></pre>
+<p>使用独立作用域(isolate scope)还有另外一个用处，那就是可以绑定不同的数据到指令内部的作用域。</p>
+<p>在我们的例子中，我们可以添加另外一个属性vojta到我们的作用域，然后在我们的指令模板中访问它。</p>
+
+<h3>源码</h3>
+
+<div class="tabbable">
+<ul class="nav nav-tabs">
+<li class="active"><a href="http://www.angularjs.net.cn/tutorial/5.html">index.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html">my-customer-plus-vojta.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html">script.js</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-261" ng-html-wrap="docsIsolationExample angular.js script.js"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"docsIsolationExample"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"Ctrl"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;my-customer</span><span class="pln"> </span><span class="atn">info</span><span class="pun">=</span><span class="atv">"naomi"</span><span class="tag">&gt;&lt;/my-customer&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L0"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L1"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+<script type="text/ng-template" id="index.html-261">
+    <div ng-controller="Ctrl">
+      <my-customer info="naomi"></my-customer>
+    </div>
+  </script>
+</div>
+<div class="tab-pane" title="my-customer-plus-vojta.html">
+<pre class="prettyprint linenums ng-binding" ng-set-text="my-customer-plus-vojta.html"><ol class="linenums"><li class="L0"><span class="typ">Name</span><span class="pun">:</span><span class="pln">  </span><span class="typ">Address</span><span class="pun">:</span><span class="pln"> </span></li><li class="L1"><span class="str">&lt;hr&gt;</span></li><li class="L2"><span class="typ">Name</span><span class="pun">:</span><span class="pln">  </span><span class="typ">Address</span><span class="pun">:</span><span class="pln"> </span></li></ol></pre>
+<script type="text/ng-template" id="my-customer-plus-vojta.html">
+    Name: {{customerInfo.name}} Address: {{customerInfo.address}}
+    <hr>
+    Name: {{vojta.name}} Address: {{vojta.address}}
+  </script>
+</div>
+<div class="tab-pane" title="script.js">
+<pre class="prettyprint linenums" ng-set-text="script.js-260"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'docsIsolationExample'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span></li><li class="L1"><span class="pln">  </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'Ctrl'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">naomi </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Naomi'</span><span class="pun">,</span><span class="pln"> address</span><span class="pun">:</span><span class="pln"> </span><span class="str">'1600 Amphitheatre'</span><span class="pln"> </span><span class="pun">};</span></li><li class="L3"><span class="pln">&nbsp;</span></li><li class="L4"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">vojta </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'Vojta'</span><span class="pun">,</span><span class="pln"> address</span><span class="pun">:</span><span class="pln"> </span><span class="str">'3456 Somewhere Else'</span><span class="pln"> </span><span class="pun">};</span></li><li class="L5"><span class="pln">  </span><span class="pun">})</span></li><li class="L6"><span class="pln">  </span><span class="pun">.</span><span class="pln">directive</span><span class="pun">(</span><span class="str">'myCustomer'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L7"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">      restrict</span><span class="pun">:</span><span class="pln"> </span><span class="str">'E'</span><span class="pun">,</span></li><li class="L9"><span class="pln">      scope</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L0"><span class="pln">        customerInfo</span><span class="pun">:</span><span class="pln"> </span><span class="str">'=info'</span></li><li class="L1"><span class="pln">      </span><span class="pun">},</span></li><li class="L2"><span class="pln">      templateUrl</span><span class="pun">:</span><span class="pln"> </span><span class="str">'my-customer-plus-vojta.html'</span></li><li class="L3"><span class="pln">    </span><span class="pun">};</span></li><li class="L4"><span class="pln">  </span><span class="pun">});</span></li></ol></pre>
+<script type="text/ng-template" id="script.js-260">
+    angular.module('docsIsolationExample', [])
+      .controller('Ctrl', function($scope) {
+        $scope.naomi = { name: 'Naomi', address: '1600 Amphitheatre' };
+
+        $scope.vojta = { name: 'Vojta', address: '3456 Somewhere Else' };
+      })
+      .directive('myCustomer', function() {
+        return {
+          restrict: 'E',
+          scope: {
+            customerInfo: '=info'
+          },
+          templateUrl: 'my-customer-plus-vojta.html'
+        };
+      });
+  </script>
+</div>
+</div></div><h3 id="创建自定义指令_demo">Demo</h3>
+<div class="well doc-example-live animate-container ng-scope" ng-embed-app="docsIsolationExample" ng-set-html="index.html-261" ng-eval-javascript="script.js-260"><div ng-controller="Ctrl" class="ng-scope">
+  <my-customer info="naomi" class="ng-binding ng-isolate-scope">
+    Name: Naomi Address: 1600 Amphitheatre
+    <hr>
+    Name:  Address: 
+  </my-customer>
+</div>
+</div>
+<p>注意，<code><span class="pun">{{</span><span class="pln">vojta</span><span class="pun">.</span><span class="pln">name</span><span class="pun">}}</span></code>和<code><span class="pun">{{</span><span class="pln">vojta</span><span class="pun">.</span><span class="pln">address</span><span class="pun">}}</span></code> 都是空的，意味着他们是undefined,
+虽然我们在控制器中定义了<code><span class="pln">vojta</span></code> ，但是在指令内部访问不到</p>
+<p>就像它的名字暗示的一样， 指令的<strong>独立作用域</strong> 隔离了除你添加到<code><span class="pln">scope</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{}</span></code>
+对象中的数据模型之外的一切东西。这对于你要建立一个可复用的组件来说是非常有用的，
+因为它可以阻止除你传入的数据模型之外的一切东西改变你内部数据模型的状态。</p>
+<div class="alert alert-warning">
+<strong>注意:</strong>普通的作用域都使用原型方式继承自父作用域。但是独立作用域没有这样的继承关系。
+</div>
+
+<div class="alert alert-success">
+<strong>最佳实践:</strong>如果要使你的组件在应用范围内可重用，那么使用<code><span class="pln">scope</span></code>选项去创建一个独立作用域
+</div>
+
+<hr>
+<h4>创建一个操作DOM的指令</h4>
+<p>在这个例子中，我们会创建一个显示当前时间的指令，每秒一次更新DOM以正确的显示当前的时间。</p>
+<p>指令修改DOM通常是在<code><span class="pln">link</span></code>选项中，<code><span class="pln">link</span></code>选项接受一个带有如下签名的函数<code><span class="kwd">function</span><span class="pln"> link</span><span class="pun">(</span><span class="pln">scope</span><span class="pun">,</span><span class="pln">element</span><span class="pun">,</span><span class="pln">attrs</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{...}</span></code>
+其中：
+<em> <code><span class="pln">scope</span></code> 是一个Angular的scope对象.
+</em> <code><span class="pln">element</span></code> 指令匹配的jqLite封装的元素(angular内部实现的类jquery的库)
+* <code><span class="pln">attrs</span></code> 是一个带有规范化后属性名字和相应值的对象.</p>
+<p>在我们的<code><span class="pln">link</span></code> 函数中，我们每秒更新一次显示时间，当用户改变绑定的时间格式字符串的时候也会更新。
+当指令被删除的时候，我们也要移除定时器，以避免引入内存泄露。</p>
+<h3>源码</h3>
+
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+<li class="active"><a href="http://www.angularjs.net.cn/tutorial/5.html#index7" role="tab" data-toggle="tab">index.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/js7" role="tab" data-toggle="tab">script.js</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="index7">
+<pre class="prettyprint linenums" ng-set-text="index.html-263" ng-html-wrap="docsTimeDirective angular.js script.js"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"docsTimeDirective"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"Ctrl2"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      Date format: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"format"</span><span class="tag">&gt;</span><span class="pln"> </span><span class="tag">&lt;hr/&gt;</span></li><li class="L9"><span class="pln">      Current time is: </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">my-current-time</span><span class="pun">=</span><span class="atv">"format"</span><span class="tag">&gt;&lt;/span&gt;</span></li><li class="L0"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L2"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="js7">
+<pre class="prettyprint linenums" ng-set-text="script.js-262"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'docsTimeDirective'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span></li><li class="L1"><span class="pln">  </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'Ctrl2'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">format </span><span class="pun">=</span><span class="pln"> </span><span class="str">'M/d/yy h:mm:ss a'</span><span class="pun">;</span></li><li class="L3"><span class="pln">  </span><span class="pun">})</span></li><li class="L4"><span class="pln">  </span><span class="pun">.</span><span class="pln">directive</span><span class="pun">(</span><span class="str">'myCurrentTime'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$timeout</span><span class="pun">,</span><span class="pln"> dateFilter</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L5"><span class="pln">&nbsp;</span></li><li class="L6"><span class="pln">    </span><span class="kwd">function</span><span class="pln"> link</span><span class="pun">(</span><span class="pln">scope</span><span class="pun">,</span><span class="pln"> element</span><span class="pun">,</span><span class="pln"> attrs</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L7"><span class="pln">      </span><span class="kwd">var</span><span class="pln"> format</span><span class="pun">,</span></li><li class="L8"><span class="pln">          timeoId</span><span class="pun">;</span></li><li class="L9"><span class="pln">&nbsp;</span></li><li class="L0"><span class="pln">      </span><span class="kwd">function</span><span class="pln"> updateTime</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">        element</span><span class="pun">.</span><span class="pln">text</span><span class="pun">(</span><span class="pln">dateFilter</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Date</span><span class="pun">(),</span><span class="pln"> format</span><span class="pun">));</span></li><li class="L2"><span class="pln">      </span><span class="pun">}</span></li><li class="L3"><span class="pln">&nbsp;</span></li><li class="L4"><span class="pln">      scope</span><span class="pun">.</span><span class="pln">$watch</span><span class="pun">(</span><span class="pln">attrs</span><span class="pun">.</span><span class="pln">myCurrentTime</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">value</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L5"><span class="pln">        format </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span></li><li class="L6"><span class="pln">        updateTime</span><span class="pun">();</span></li><li class="L7"><span class="pln">      </span><span class="pun">});</span></li><li class="L8"><span class="pln">&nbsp;</span></li><li class="L9"><span class="pln">      </span><span class="kwd">function</span><span class="pln"> scheduleUpdate</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L0"><span class="pln">        </span><span class="com">// save the timeoutId for canceling</span></li><li class="L1"><span class="pln">        timeoutId </span><span class="pun">=</span><span class="pln"> $timeout</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">          updateTime</span><span class="pun">();</span><span class="pln"> </span><span class="com">// update DOM</span></li><li class="L3"><span class="pln">          scheduleUpdate</span><span class="pun">();</span><span class="pln"> </span><span class="com">// schedule the next update</span></li><li class="L4"><span class="pln">        </span><span class="pun">},</span><span class="pln"> </span><span class="lit">1000</span><span class="pun">);</span></li><li class="L5"><span class="pln">      </span><span class="pun">}</span></li><li class="L6"><span class="pln">&nbsp;</span></li><li class="L7"><span class="pln">      element</span><span class="pun">.</span><span class="pln">on</span><span class="pun">(</span><span class="str">'$destroy'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">        $timeout</span><span class="pun">.</span><span class="pln">cancel</span><span class="pun">(</span><span class="pln">timeoutId</span><span class="pun">);</span></li><li class="L9"><span class="pln">      </span><span class="pun">});</span></li><li class="L0"><span class="pln">&nbsp;</span></li><li class="L1"><span class="pln">      </span><span class="com">// start the UI update process.</span></li><li class="L2"><span class="pln">      scheduleUpdate</span><span class="pun">();</span></li><li class="L3"><span class="pln">    </span><span class="pun">}</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">      link</span><span class="pun">:</span><span class="pln"> link</span></li><li class="L7"><span class="pln">    </span><span class="pun">};</span></li><li class="L8"><span class="pln">  </span><span class="pun">});</span></li></ol></pre>
+
+</div>
+</div></div><h3 id="创建自定义指令_demo">Demo</h3>
+<div class="well doc-example-live animate-container ng-scope" ng-embed-app="docsTimeDirective" ng-set-html="index.html-263" ng-eval-javascript="script.js-262"><div ng-controller="Ctrl2" class="ng-scope">
+  Date format: <input ng-model="format" class="ng-pristine ng-valid"> <hr>
+  Current time is: <span my-current-time="format">9/19/16 10:57:39 PM</span>
+</div>
+</div>
+<p>这里有很多东西值得注意：
+像<code><span class="kwd">module</span><span class="pun">.</span><span class="pln">controller</span></code>函数中一样, <code><span class="kwd">module</span><span class="pun">.</span><span class="pln">directive</span></code>函数的参数也是通过依赖注入获得的，
+因此，我们可以在<code><span class="pln">link</span></code>函数内部使用<code><span class="pln">$timeout</span></code> 和<code><span class="pln">dateFilter</span></code> 服务。</p>
+<p>我们注册了一个事件<code><span class="pln">element</span><span class="pun">.</span><span class="pln">on</span><span class="pun">(</span><span class="str">'$destroy'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">...)</span></code>, 是什么触发了这个事件呢？</p>
+<p>AngularJS会触发一些特定的事件，当一个被angular编译过的DOM元素被移除的时候，
+它会触发一个<code><span class="pln">$destroy</span></code> 事件，同样的，当一个angular作用域被移除的时候，
+它会向下广播<code><span class="pln">$destroy</span></code> 事件到所有下级作用域。</p>
+<p>通过监听事件，你可以移除可能引起内存泄露的事件监听器，
+注册在元素和作用域上的监听器在它们被移除的时候，会自动会清理掉，
+但是假如注册一个事件在服务或者没有被删除的DOM节点上，你就必须手工清理，否则会有内存泄露的风险。</p>
+<div class="alert alert-success">
+<strong>最佳实践:</strong> 指令应该自己管理自身分配的内存。当指令被移除时，
+你可以使用<code><span class="pln">element</span><span class="pun">.</span><span class="pln">on</span><span class="pun">(</span><span class="str">'$destroy'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">...)</span></code> 或 <code><span class="pln">scope</span><span class="pun">.</span><span class="pln">$on</span><span class="pun">(</span><span class="str">'$destroy'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">...)</span></code>来执行一个清理的工作。
+</div>
+
+<hr>
+<h4 id="创建自定义指令_demo_创建包含其他元素的指令">创建包含其他元素的指令</h4>
+<p>我们现在已经实现了使用独立作用域传递数据模型到指令里面。
+但是有时候我们需要能够传进去整个模板而不是字符串或者对象。
+让我们通过创建'dialog box'组件来演示它。这个'dialog box'组件应该能够包裹任意内容。</p>
+<p>要想实现这个，我们需要使用<code><span class="pln">transclude</span></code>选项。</p>
+<h3>源码</h3>
+
+<div class="tabbable">
+<ul class="nav nav-tabs">
+<li class="active"><a href="http://www.angularjs.net.cn/tutorial/5.html">index.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html">my-dialog.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html">script.js</a></li>
+</ul>
+<div class="tab-content"><div class="tab-pane active" title="index.html">
+<pre class="prettyprint linenums ng-binding" ng-set-text="index.html-265" ng-html-wrap="docsTransclusionDirective angular.js script.js"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"docsTransclusionDirective"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"Ctrl"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;my-dialog&gt;</span><span class="pln">Check out the contents, !</span><span class="tag">&lt;/my-dialog&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L0"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L1"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+<script type="text/ng-template" id="index.html-265">
+    <div ng-controller="Ctrl">
+      <my-dialog>Check out the contents, {{name}}!</my-dialog>
+    </div>
+  </script>
+</div>
+<div class="tab-pane" title="my-dialog.html">
+<pre class="prettyprint linenums" ng-set-text="my-dialog.html"><ol class="linenums"><li class="L0"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"alert"</span><span class="pln"> </span><span class="atn">ng-transclude</span><span class="tag">&gt;</span></li><li class="L1"><span class="tag">&lt;/div&gt;</span></li></ol></pre>
+<script type="text/ng-template" id="my-dialog.html">
+    <div class="alert" ng-transclude>
+    </div>
+  </script>
+</div>
+<div class="tab-pane" title="script.js">
+<pre class="prettyprint linenums" ng-set-text="script.js-264"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'docsTransclusionDirective'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span></li><li class="L1"><span class="pln">  </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'Ctrl'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Tobias'</span><span class="pun">;</span></li><li class="L3"><span class="pln">  </span><span class="pun">})</span></li><li class="L4"><span class="pln">  </span><span class="pun">.</span><span class="pln">directive</span><span class="pun">(</span><span class="str">'myDialog'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L5"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">      restrict</span><span class="pun">:</span><span class="pln"> </span><span class="str">'E'</span><span class="pun">,</span></li><li class="L7"><span class="pln">      transclude</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span></li><li class="L8"><span class="pln">      templateUrl</span><span class="pun">:</span><span class="pln"> </span><span class="str">'my-dialog.html'</span></li><li class="L9"><span class="pln">    </span><span class="pun">};</span></li><li class="L0"><span class="pln">  </span><span class="pun">});</span></li></ol></pre>
+<script type="text/ng-template" id="script.js-264">
+    angular.module('docsTransclusionDirective', [])
+      .controller('Ctrl', function($scope) {
+        $scope.name = 'Tobias';
+      })
+      .directive('myDialog', function() {
+        return {
+          restrict: 'E',
+          transclude: true,
+          templateUrl: 'my-dialog.html'
+        };
+      });
+  </script>
+</div>
+</div></div><h3 id="创建自定义指令_demo">Demo</h3>
+<div class="well doc-example-live animate-container ng-scope" ng-embed-app="docsTransclusionDirective" ng-set-html="index.html-265" ng-eval-javascript="script.js-264"><div ng-controller="Ctrl" class="ng-scope">
+  <my-dialog>
+    <div class="alert" ng-transclude=""><span class="ng-binding ng-scope">Check out the contents, Tobias!</span></div>
+  </my-dialog>
+</div>
+</div>
+<p>这个<code><span class="pln">transclude</span></code>选项用来干嘛呢？<code><span class="pln">transclude</span></code>使带有这个选项的指令，所包裹的内容能够访问指令<strong>外部</strong>的作用域。</p>
+<p>为了说明这个,请看下面的例子。注意，我们在<code><span class="pln">script</span><span class="pun">.</span><span class="pln">js</span></code>增加了一个<code><span class="pln">link</span></code> 函数，
+在这个link函数内部我们重定义了name属性的值为Jeff，那么现在这个<code><span class="pun">{{</span><span class="pln">name</span><span class="pun">}}</span></code>会被解析成哪个值呢？</p>
+<h3 id="创建自定义指令_source">源码</h3>
+
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+<li class="active"><a href="http://www.angularjs.net.cn/tutorial/5.html#index5" role="tab" data-toggle="tab">index.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html#my5" role="tab" data-toggle="tab">my-dialog.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html#js5" role="tab" data-toggle="tab">script.js</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="index5">
+<pre class="prettyprint linenums ng-binding" ng-set-text="index.html-267" ng-html-wrap="docsTransclusionExample angular.js script.js"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"docsTransclusionExample"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"Ctrl"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;my-dialog&gt;</span><span class="pln">Check out the contents, !</span><span class="tag">&lt;/my-dialog&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L0"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L1"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+</div>
+<div class="tab-pane" id="my5">
+<pre class="prettyprint linenums" ng-set-text="my-dialog.html"><ol class="linenums"><li class="L0"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"alert"</span><span class="pln"> </span><span class="atn">ng-transclude</span><span class="tag">&gt;</span></li><li class="L1"><span class="tag">&lt;/div&gt;</span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="js5">
+<pre class="prettyprint linenums" ng-set-text="script.js-266"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'docsTransclusionExample'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span></li><li class="L1"><span class="pln">  </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'Ctrl'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Tobias'</span><span class="pun">;</span></li><li class="L3"><span class="pln">  </span><span class="pun">})</span></li><li class="L4"><span class="pln">  </span><span class="pun">.</span><span class="pln">directive</span><span class="pun">(</span><span class="str">'myDialog'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L5"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">      restrict</span><span class="pun">:</span><span class="pln"> </span><span class="str">'E'</span><span class="pun">,</span></li><li class="L7"><span class="pln">      transclude</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span></li><li class="L8"><span class="pln">      scope</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{},</span></li><li class="L9"><span class="pln">      templateUrl</span><span class="pun">:</span><span class="pln"> </span><span class="str">'my-dialog.html'</span><span class="pun">,</span></li><li class="L0"><span class="pln">      link</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">scope</span><span class="pun">,</span><span class="pln"> element</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">        scope</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Jeff'</span><span class="pun">;</span></li><li class="L2"><span class="pln">      </span><span class="pun">}</span></li><li class="L3"><span class="pln">    </span><span class="pun">};</span></li><li class="L4"><span class="pln">  </span><span class="pun">});</span></li></ol></pre>
+
+</div>
+</div></div><h3 id="创建自定义指令_demo">Demo</h3>
+<div class="well doc-example-live animate-container ng-scope" ng-embed-app="docsTransclusionExample" ng-set-html="index.html-267" ng-eval-javascript="script.js-266"><div ng-controller="Ctrl" class="ng-scope">
+  <my-dialog class="ng-isolate-scope">
+    <div class="alert" ng-transclude=""><span class="ng-binding ng-scope">Check out the contents, Tobias!</span></div>
+  </my-dialog>
+</div>
+</div>
+<p>一般，我们会认为<code><span class="pun">{{</span><span class="pln">name</span><span class="pun">}}</span></code>会被解析为<code><span class="typ">Jeff</span></code>，然而这里，我们看到这个例子中的<code><span class="pun">{{</span><span class="pln">name</span><span class="pun">}}</span></code> 还是被解析成了<code><span class="typ">Tobias</span></code>.</p>
+<p><code><span class="pln">transclude</span></code> 选项改变了指令相互嵌套的方式，他使指令的<strong>内容</strong>拥有任何指令外部的作用域，
+而不是内部的作用域。为了实现这一点，它给了指令内容访问外部作用域的机会。</p>
+<p>需要注意的是，如果指令不创建自己的scope(就是说scope:false，或省略)，然后在在link函数里执行
+<code><span class="pln">scope</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Jeff'</span><span class="pun">;</span></code> 很明显外部的<code><span class="pln">scope</span></code>scope会受影响，因为指令是继续了外部的<code><span class="pln">scope</span></code> ,在输出上会看出 <code><span class="typ">Jeff</span></code></p>
+<p>这样的行为对于包含内容的指令是非常有意义的。因为如果不这样的话，
+你就必须分别传入每个你需要使用的数据模型。如果你需要传入每个要使用的数据模型，
+那么你就无法做到适应各种不同内容的情况,对吧？</p>
+<div class="alert alert-success">
+<strong>最佳实践:</strong> 仅当你要创建一个包裹任意内容的指令的时候使用<code><span class="pln">transclude</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span></code>。
+</div>
+
+<p>接下来我们增加一个按钮到'dialog box'组件里面，允许用户使用指令绑定自己定义的行为。</p>
+<h3 id="创建自定义指令_source">源码</h3>
+
+
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+<li class="active"><a href="http://www.angularjs.net.cn/tutorial/5.html#index6" role="tab" data-toggle="tab">index.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html#my6" role="tab" data-toggle="tab">my-dialog-close.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html#js6" role="tab" data-toggle="tab">script.js</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="index6">
+<pre class="prettyprint linenums "><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"docsIsoFnBindExample"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"Ctrl"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;my-dialog</span><span class="pln"> </span><span class="atn">ng-hide</span><span class="pun">=</span><span class="atv">"dialogIsHidden"</span><span class="pln"> </span><span class="atn">on-close</span><span class="pun">=</span><span class="atv">"hideDialog()"</span><span class="tag">&gt;</span></li><li class="L9"><span class="pln">        Check out the contents, !</span></li><li class="L0"><span class="pln">      </span><span class="tag">&lt;/my-dialog&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L3"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="my6">
+<pre class="prettyprint linenums" ng-set-text="my-dialog-close.html"><ol class="linenums"><li class="L0"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"alert"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"close"</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"close()"</span><span class="tag">&gt;</span><span class="pln">&amp;times;</span><span class="tag">&lt;/a&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-transclude</span><span class="tag">&gt;&lt;/div&gt;</span></li><li class="L3"><span class="tag">&lt;/div&gt;</span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="js6">
+<pre class="prettyprint linenums" ng-set-text="script.js-268"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'docsIsoFnBindExample'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span></li><li class="L1"><span class="pln">  </span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'Ctrl'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">,</span><span class="pln"> $timeout</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Tobias'</span><span class="pun">;</span></li><li class="L3"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">hideDialog </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">      $scope</span><span class="pun">.</span><span class="pln">dialogIsHidden </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span></li><li class="L5"><span class="pln">      $timeout</span><span class="pun">(</span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">        $scope</span><span class="pun">.</span><span class="pln">dialogIsHidden </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></li><li class="L7"><span class="pln">      </span><span class="pun">},</span><span class="pln"> </span><span class="lit">2000</span><span class="pun">);</span></li><li class="L8"><span class="pln">    </span><span class="pun">};</span></li><li class="L9"><span class="pln">  </span><span class="pun">})</span></li><li class="L0"><span class="pln">  </span><span class="pun">.</span><span class="pln">directive</span><span class="pun">(</span><span class="str">'myDialog'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">      restrict</span><span class="pun">:</span><span class="pln"> </span><span class="str">'E'</span><span class="pun">,</span></li><li class="L3"><span class="pln">      transclude</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span></li><li class="L4"><span class="pln">      scope</span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span></li><li class="L5"><span class="pln">        </span><span class="str">'close'</span><span class="pun">:</span><span class="pln"> </span><span class="str">'&amp;onClose'</span></li><li class="L6"><span class="pln">      </span><span class="pun">},</span></li><li class="L7"><span class="pln">      templateUrl</span><span class="pun">:</span><span class="pln"> </span><span class="str">'my-dialog-close.html'</span></li><li class="L8"><span class="pln">    </span><span class="pun">};</span></li><li class="L9"><span class="pln">  </span><span class="pun">});</span></li></ol></pre>
+
+</div>
+</div></div><h3 id="创建自定义指令_demo">Demo</h3>
+<div class="well doc-example-live animate-container ng-scope" ng-embed-app="docsIsoFnBindExample" ng-set-html="index.html-269" ng-eval-javascript="script.js-268"><div ng-controller="Ctrl" class="ng-scope">
+  <my-dialog ng-hide="dialogIsHidden" on-close="hideDialog()" class="ng-isolate-scope">
+    <div class="alert">
+      <a href="http://www.angularjs.net.cn/tutorial/5.html" class="close" ng-click="close()">×</a>
+      <div ng-transclude=""><span class="ng-binding ng-scope">
+    Check out the contents, Tobias!
+  </span></div>
+    </div>
+  </my-dialog>
+</div>
+</div>
+<p>我们想要通过在指令的作用域上调用我们传进去的函数，但是这个函数本该运行在定义时候的上下文。</p>
+<p>先前我们看到如何在<code><span class="pln">scope</span></code>选项中使用<code><span class="pun">=</span><span class="pln">prop</span></code> ，但是在上文的例子中，
+我们使用了<code><span class="pun">&amp;</span><span class="pln">prop</span></code> ，<code><span class="pun">&amp;</span></code> 绑定了一个函数到独立作用域，
+允许独立作用域调用它，同时保留了原来函数的作用域(这里的作用域都是指$scope)。
+所以当一个用户点击<code><span class="pln">x</span></code>时候，就会运行<code><span class="typ">Ctrl</span></code>控制器的<code><span class="pln">close</span></code>函数。</p>
+<div class="alert alert-success">
+<strong>最佳实践:</strong>  当你的指令想要开放一个API去绑定特定的行为，在<code><span class="pln">scope</span></code>选项中使用<code><span class="pun">&amp;</span><span class="pln">prop</span></code>。
+</div>
+
+<hr>
+<h4 id="创建自定义指令_demo_创建一个带事件监听器的指令">创建一个带事件监听器的指令</h4>
+<p>先前，我们使用<code><span class="pln">link</span></code>函数创建一个操作DOM元素的指令，基于上面的例子，我们创建一个监听元素的事件，以作出相应操作的指令。</p>
+<p>比如说，假如我们想要创建一个让用户可拖曳的元素，该怎么做呢？</p>
+<h3>源码</h3>
+
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+<li class="active"><a href="http://www.angularjs.net.cn/tutorial/5.html#index9" role="tab" data-toggle="tab">index.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/5.html#js9" role="tab" data-toggle="tab">script.js</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="index9">
+<pre class="prettyprint linenums" ng-set-text="index.html-271" ng-html-wrap="dragModule angular.js script.js"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"dragModule"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">my-draggable</span><span class="tag">&gt;</span><span class="pln">Drag ME</span><span class="tag">&lt;/span&gt;</span></li><li class="L8"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L9"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+<script type="text/ng-template" id="index.html-271">
+    <span my-draggable>Drag ME</span>
+  </script>
+</div>
+<div class="tab-pane" id="js9">
+<pre class="prettyprint linenums" ng-set-text="script.js-270"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'dragModule'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[]).</span></li><li class="L1"><span class="pln">  directive</span><span class="pun">(</span><span class="str">'myDraggable'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$document</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">scope</span><span class="pun">,</span><span class="pln"> element</span><span class="pun">,</span><span class="pln"> attr</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">      </span><span class="kwd">var</span><span class="pln"> startX </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> startY </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> y </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">      element</span><span class="pun">.</span><span class="pln">css</span><span class="pun">({</span></li><li class="L6"><span class="pln">       position</span><span class="pun">:</span><span class="pln"> </span><span class="str">'relative'</span><span class="pun">,</span></li><li class="L7"><span class="pln">       border</span><span class="pun">:</span><span class="pln"> </span><span class="str">'1px solid red'</span><span class="pun">,</span></li><li class="L8"><span class="pln">       backgroundColor</span><span class="pun">:</span><span class="pln"> </span><span class="str">'lightgrey'</span><span class="pun">,</span></li><li class="L9"><span class="pln">       cursor</span><span class="pun">:</span><span class="pln"> </span><span class="str">'pointer'</span></li><li class="L0"><span class="pln">      </span><span class="pun">});</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="pln">      element</span><span class="pun">.</span><span class="pln">on</span><span class="pun">(</span><span class="str">'mousedown'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">        </span><span class="com">// 组织所选对象的默认拖曳操作</span></li><li class="L4"><span class="pln">        </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">preventDefault</span><span class="pun">();</span></li><li class="L5"><span class="pln">        startX </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">pageX </span><span class="pun">-</span><span class="pln"> x</span><span class="pun">;</span></li><li class="L6"><span class="pln">        startY </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">pageY </span><span class="pun">-</span><span class="pln"> y</span><span class="pun">;</span></li><li class="L7"><span class="pln">        $document</span><span class="pun">.</span><span class="pln">on</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> mousemove</span><span class="pun">);</span></li><li class="L8"><span class="pln">        $document</span><span class="pun">.</span><span class="pln">on</span><span class="pun">(</span><span class="str">'mouseup'</span><span class="pun">,</span><span class="pln"> mouseup</span><span class="pun">);</span></li><li class="L9"><span class="pln">      </span><span class="pun">});</span></li><li class="L0"><span class="pln">&nbsp;</span></li><li class="L1"><span class="pln">      </span><span class="kwd">function</span><span class="pln"> mousemove</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">        y </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">pageY </span><span class="pun">-</span><span class="pln"> startY</span><span class="pun">;</span></li><li class="L3"><span class="pln">        x </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">pageX </span><span class="pun">-</span><span class="pln"> startX</span><span class="pun">;</span></li><li class="L4"><span class="pln">        element</span><span class="pun">.</span><span class="pln">css</span><span class="pun">({</span></li><li class="L5"><span class="pln">          top</span><span class="pun">:</span><span class="pln"> y </span><span class="pun">+</span><span class="pln"> </span><span class="str">'px'</span><span class="pun">,</span></li><li class="L6"><span class="pln">          left</span><span class="pun">:</span><span class="pln">  x </span><span class="pun">+</span><span class="pln"> </span><span class="str">'px'</span></li><li class="L7"><span class="pln">        </span><span class="pun">});</span></li><li class="L8"><span class="pln">      </span><span class="pun">}</span></li><li class="L9"><span class="pln">&nbsp;</span></li><li class="L0"><span class="pln">      </span><span class="kwd">function</span><span class="pln"> mouseup</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">        $document</span><span class="pun">.</span><span class="pln">unbind</span><span class="pun">(</span><span class="str">'mousemove'</span><span class="pun">,</span><span class="pln"> mousemove</span><span class="pun">);</span></li><li class="L2"><span class="pln">        $document</span><span class="pun">.</span><span class="pln">unbind</span><span class="pun">(</span><span class="str">'mouseup'</span><span class="pun">,</span><span class="pln"> mouseup</span><span class="pun">);</span></li><li class="L3"><span class="pln">      </span><span class="pun">}</span></li><li class="L4"><span class="pln">    </span><span class="pun">}</span></li><li class="L5"><span class="pln">  </span><span class="pun">});</span></li></ol></pre>
+</div>
+          
+		
+		</div>
+	</div>
+	<div class="ad1">	
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 336 x 280 -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="9942648348"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>	
+	
+		</div>
+	</div>
+</div>
+<footer>
+	<p>Copyright © 2014 - 2018 <a href="http://www.angularjs.net.cn/">AngularJS中文网</a>, <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备15074038号-4</a>, All Rights Reserved.
+
+</p>
+</footer>
+<script type="text/javascript">
+    /*图+推广*/
+    /*建议投放在200*300以上的图片*/
+    var cpro_id = "u1948815";
+</script>
+<script type="text/javascript" src="./14.AngularJS 指令(Directives)_files/i.js.下载"></script>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?12ec03a62d55d8fb4b144b14ccedecec";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<script src="./14.AngularJS 指令(Directives)_files/jquery.js.下载"></script>
+<script src="./14.AngularJS 指令(Directives)_files/common.js.下载"></script>
+<script src="./14.AngularJS 指令(Directives)_files/bootstrap.min.js.下载"></script>
+
+</body></html>

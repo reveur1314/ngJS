@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)https://docs.angularjs.org/examples/example-filter-in-controller/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  
+  <title>Example - example-filter-in-controller</title>
+  
+
+  <script src="./angular.min.js.下载"></script>
+  <script src="./script.js.下载"></script>
+  
+
+  
+</head>
+<body ng-app="FilterInControllerModule" class="ng-scope">
+  <div ng-controller="FilterController as ctrl" class="ng-scope">
+  <div>
+    All entries:
+    <!-- ngRepeat: entry in ctrl.array --><span ng-repeat="entry in ctrl.array" class="ng-binding ng-scope">Tobias </span><!-- end ngRepeat: entry in ctrl.array --><span ng-repeat="entry in ctrl.array" class="ng-binding ng-scope">Jeff </span><!-- end ngRepeat: entry in ctrl.array --><span ng-repeat="entry in ctrl.array" class="ng-binding ng-scope">Brian </span><!-- end ngRepeat: entry in ctrl.array --><span ng-repeat="entry in ctrl.array" class="ng-binding ng-scope">Igor </span><!-- end ngRepeat: entry in ctrl.array --><span ng-repeat="entry in ctrl.array" class="ng-binding ng-scope">James </span><!-- end ngRepeat: entry in ctrl.array --><span ng-repeat="entry in ctrl.array" class="ng-binding ng-scope">Brad </span><!-- end ngRepeat: entry in ctrl.array -->
+  </div>
+  <div>
+    Entries that contain an "a":
+    <!-- ngRepeat: entry in ctrl.filteredArray --><span ng-repeat="entry in ctrl.filteredArray" class="ng-binding ng-scope">Tobias </span><!-- end ngRepeat: entry in ctrl.filteredArray --><span ng-repeat="entry in ctrl.filteredArray" class="ng-binding ng-scope">Brian </span><!-- end ngRepeat: entry in ctrl.filteredArray --><span ng-repeat="entry in ctrl.filteredArray" class="ng-binding ng-scope">James </span><!-- end ngRepeat: entry in ctrl.filteredArray --><span ng-repeat="entry in ctrl.filteredArray" class="ng-binding ng-scope">Brad </span><!-- end ngRepeat: entry in ctrl.filteredArray -->
+  </div>
+</div>
+
+</body></html>

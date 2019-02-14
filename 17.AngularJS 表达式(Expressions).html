@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://www.angularjs.net.cn/tutorial/3.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AngularJS 表达式(Expressions)</title>
+<link rel="icon" href="http://www.angularjs.net.cn/Application/Home/View/Public/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="./17.AngularJS 表达式(Expressions)_files/bootstrap.min.css">
+<link href="./17.AngularJS 表达式(Expressions)_files/prettify.css" rel="stylesheet">
+<script src="./17.AngularJS 表达式(Expressions)_files/hm.js.下载"></script><script src="./17.AngularJS 表达式(Expressions)_files/prettify.js.下载"></script>
+
+
+<link rel="stylesheet" href="./17.AngularJS 表达式(Expressions)_files/style.css">
+
+</head>
+<body onload="prettyPrint()">
+<div id="top">
+	<div class="container">
+	<div class="logo"><a href="http://www.angularjs.net.cn/">AngularJs中文网</a></div>
+	<ul>
+		<li><a href="http://www.angularjs.net.cn/">首页</a></li>
+		<li><a href="http://www.angularjs.net.cn/tutorial/">AngularJS 教程</a></li>
+		
+		<li><a href="http://www.angularjs.net.cn/phonecat/">AngularJS PhoneCat</a></li>
+		<li><a href="http://www.angularjs.net.cn/download/">AngularJS 下载</a></li>
+		<li><a href="http://www.angularjs.net.cn/api/">AngularJS api</a></li>
+		<li style="display:none;"><a href="http://www.angularjs.net.cn/angular-seed">AngularJS Seed</a></li>
+	<li><a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=iuvvbh9n" onclick="_hmt.push([&#39;_trackEvent&#39;, &#39;nav&#39;, &#39;click&#39;, &#39;Ecs&#39;])" target="_blank">Ecs服务器</a></li>
+	
+
+	
+	</ul>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+<ul>
+	<li><a href="http://www.angularjs.net.cn/tutorial/1.html">简介（Introduction）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/16.html">引导程序（Bootstrap）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/18.html">概念概述(Conceptual Overview)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/15.html">Html编译（HTML Compiler）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/10.html">数据绑定（Data Binding）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/2.html">控制器(Controllers)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/19.html">服务（Services）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/12.html">作用域(Scope)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/17.html">依赖注入(Dependency Injection)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/13.html">模板（Templates）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/11.html">使用css(Working With CSS)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/8.html">过滤器（Filters）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/4.html">表单(Forms)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/5.html">指令(Directives)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/20.html">Components</a></li><li><a href="http://www.angularjs.net.cn/tutorial/21.html">Component Router</a></li><li><a href="http://www.angularjs.net.cn/tutorial/7.html">动画(Animations)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/6.html">模块(Modules)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/3.html">表达式(Expressions)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/9.html">供应者（Providers）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/14.html">$location</a></li><li><a href="http://www.angularjs.net.cn/tutorial/22.html">单元测试</a></li><li><a href="http://www.angularjs.net.cn/tutorial/23.html">端对端测试</a></li></ul>
+<div id="ad">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 160x600 -->
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="1088261149"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+		<div class="col-md-9">
+			<div class="page-header"><h1>AngularJS 表达式(Expressions)</h1></div>
+
+<div style="margin-bottom:10px;">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 728x90 --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="2639707541"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 728x90 --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="2639707541"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+			
+			
+	
+		
+
+<p>"表达式"是一种类似JavaScript的代码片段，通常在视图中以''的形式使用。表达式由<a href="http://www.angularjs.net.cn/tutorial/api/ng.$parse"><code><span class="pln">$parse</span></code></a>服务解析，而解析之后经常会使用<a href="http://www.angularjs.net.cn/tutorial/guide/filter">过滤器</a>来格式化成一种更加用户友好的形式。</p>
+<p>例如，下面这些都是Angular中合法的表达式：</p>
+<ul>
+<li><code><span class="lit">1</span><span class="pun">+</span><span class="lit">2</span></code></li>
+<li><code><span class="pln">user</span><span class="pun">.</span><span class="pln">name</span></code></li>
+</ul>
+<hr>
+<h3>Angular表达式与JS表达式</h3>
+<p>可能会有人认为Angular视图表达式就是JavaScript表达式，但这不完全正确，因为Angular并没有使用JavaScript中的'eval()'来解析表达式。你可以认为Angular表达式与JavaScript表达式有如下的区别：</p>
+<ul>
+<li><p><strong>属性解析：</strong> 所有的属性的解析都是相对于作用域(scope)的，而不像JavaScript中的表达式解析那样是相对于全局'window'对象的。</p>
+</li>
+<li><p><strong>容错性：</strong> 表达式的解析对'undefined'和'null'具有容错性，这不像在JavaScript中，试图解析未定义的属性时会抛出<code><span class="typ">ReferenceError</span></code>或<code><span class="typ">TypeError</span></code>错误.</p>
+</li>
+<li><p><strong>禁止控制流语句：</strong> 表达式中不允许包括下列语句：条件判断(if)，循环(for/while)，抛出异常(throw)。</p>
+</li>
+</ul>
+<p>另一方面，如果你想执行特定的JavaScript代码，你应该在一个控制器里导出一个方法，然后在模板中调用这个方法。如果你想在JavaScript中解析一个Angular表达式，使用<a href="http://www.angularjs.net.cn/tutorial/api/ng.$rootScope.Scope#methods_$eval"><code><code><span class="pln">$eval</span><span class="pun">()</span></code></code></a>方法。</p>
+
+<h3>源码</h3>
+
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+<li class="active"><a href="http://www.angularjs.net.cn/tutorial/3.html#html1" role="tab" data-toggle="tab">index.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/3.html#test1" role="tab" data-toggle="tab">ngScenario e2e test</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="html1">
+<pre class="prettyprint linenums ng-binding" ng-set-text="index.html-225" ng-html-wrap=" angular.js"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L6"><span class="pln">    1+2={{1+2}}</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L8"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="test1">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-226"><ol class="linenums"><li class="L0"><span class="pln">it</span><span class="pun">(</span><span class="str">'should calculate expression in binding'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">  expect</span><span class="pun">(</span><span class="pln">binding</span><span class="pun">(</span><span class="str">'1+2'</span><span class="pun">)).</span><span class="pln">toEqual</span><span class="pun">(</span><span class="str">'3'</span><span class="pun">);</span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+
+</div>
+</div></div>
+<h3 id="demo">效果</h3>
+<div class="well">
+	<iframe src="./17.AngularJS 表达式(Expressions)_files/index.html"></iframe>
+</div>
+<p>你可以在此处试一试解析其他的表达式：</p>
+<hr>
+<h3>源码</h3>
+
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+<li class="active"><a href="http://www.angularjs.net.cn/tutorial/3.html#html2" role="tab" data-toggle="tab">index.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/3.html#js2" role="tab" data-toggle="tab">script.js</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/3.html#test2" role="tab" data-toggle="tab">ngScenario e2e test</a></li>
+</ul>
+
+<div class="tab-content">
+<div class="tab-pane active" id="html2">
+<pre class="prettyprint linenums ng-binding" ng-set-text="index.html-228" ng-html-wrap=" angular.js script.js"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"Cntl2"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"expressions"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      Expression:</span></li><li class="L9"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">'text'</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"expr"</span><span class="pln"> </span><span class="atn">size</span><span class="pun">=</span><span class="atv">"80"</span><span class="tag">/&gt;</span></li><li class="L0"><span class="pln">      </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"addExp(expr)"</span><span class="tag">&gt;</span><span class="pln">Evaluate</span><span class="tag">&lt;/button&gt;</span></li><li class="L1"><span class="pln">      </span><span class="tag">&lt;ul&gt;</span></li><li class="L2"><span class="pln">       </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">ng-repeat</span><span class="pun">=</span><span class="atv">"expr in exprs track by $index"</span><span class="tag">&gt;</span></li><li class="L3"><span class="pln">         [ </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">href</span><span class="pun">=</span><span class="atv">""</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"removeExp($index)"</span><span class="tag">&gt;</span><span class="pln">X</span><span class="tag">&lt;/a&gt;</span><span class="pln"> ]</span></li><li class="L4"><span class="pln">         </span><span class="tag">&lt;tt&gt;&lt;/tt&gt;</span><span class="pln"> =&gt; </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng-bind</span><span class="pun">=</span><span class="atv">"$parent.$eval(expr)"</span><span class="tag">&gt;&lt;/span&gt;</span></li><li class="L5"><span class="pln">        </span><span class="tag">&lt;/li&gt;</span></li><li class="L6"><span class="pln">      </span><span class="tag">&lt;/ul&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L8"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L9"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="js2">
+<pre class="prettyprint linenums" ng-set-text="script.js-227"><ol class="linenums"><li class="L0"><span class="kwd">function</span><span class="pln"> </span><span class="typ">Cntl2</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">  </span><span class="kwd">var</span><span class="pln"> exprs </span><span class="pun">=</span><span class="pln"> $scope</span><span class="pun">.</span><span class="pln">exprs </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[];</span></li><li class="L2"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">expr </span><span class="pun">=</span><span class="pln"> </span><span class="str">'3*10|currency'</span><span class="pun">;</span></li><li class="L3"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">addExp </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">expr</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">     exprs</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="pln">expr</span><span class="pun">);</span></li><li class="L5"><span class="pln">  </span><span class="pun">};</span></li><li class="L6"><span class="pln">&nbsp;</span></li><li class="L7"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">removeExp </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">index</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">    exprs</span><span class="pun">.</span><span class="pln">splice</span><span class="pun">(</span><span class="pln">index</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span></li><li class="L9"><span class="pln">  </span><span class="pun">};</span></li><li class="L0"><span class="pun">}</span></li></ol></pre>
+</div>
+<div class="tab-pane" id="test2">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-229"><ol class="linenums"><li class="L0"><span class="pln">it</span><span class="pun">(</span><span class="str">'should allow user expression testing'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">   element</span><span class="pun">(</span><span class="str">'.expressions :button'</span><span class="pun">).</span><span class="pln">click</span><span class="pun">();</span></li><li class="L2"><span class="pln">   </span><span class="kwd">var</span><span class="pln"> li </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">using</span><span class="pun">(</span><span class="str">'.expressions ul'</span><span class="pun">).</span><span class="pln">repeater</span><span class="pun">(</span><span class="str">'li'</span><span class="pun">);</span></li><li class="L3"><span class="pln">   expect</span><span class="pun">(</span><span class="pln">li</span><span class="pun">.</span><span class="pln">count</span><span class="pun">()).</span><span class="pln">toBe</span><span class="pun">(</span><span class="lit">1</span><span class="pun">);</span></li><li class="L4"><span class="pln">   expect</span><span class="pun">(</span><span class="pln">li</span><span class="pun">.</span><span class="pln">row</span><span class="pun">(</span><span class="lit">0</span><span class="pun">)).</span><span class="pln">toEqual</span><span class="pun">([</span><span class="str">"3*10|currency"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"$30.00"</span><span class="pun">]);</span></li><li class="L5"><span class="pun">});</span></li></ol></pre>
+
+</div>
+</div></div>
+
+<h3 id="demo">效果 </h3>
+<div class="well">
+	<iframe src="./17.AngularJS 表达式(Expressions)_files/index(1).html"></iframe>
+</div>
+<hr>
+<h2>属性解析</h2>
+<p>属性解析发生在scope上。不像在JavaScript中，将默认的属性解析放在全局的window对象中，Angular表达式必须使用<a href="http://www.angularjs.net.cn/tutorial/api/ng.$window"><code><code><span class="pln">$window</span></code></code></a>来指向全局的'window'对象。例如，如果你想调用在'window'上定义的'alert()'方法，在表达式中，你必须使用'$window.alert()'。作者故意这样设定，就是为了防止对全局状态非正常的访问（一些奇怪bug的常见来源）。</p>
+<h3>源码</h3>
+
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+<li class="active"><a href="http://www.angularjs.net.cn/tutorial/3.html#html3" role="tab" data-toggle="tab">index.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/3.html#js3" role="tab" data-toggle="tab">script.js</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/3.html#test3" role="tab" data-toggle="tab">ngScenario e2e test</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="html3">
+<pre class="prettyprint linenums" ng-set-text="index.html-231" ng-html-wrap=" angular.js script.js"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"example2"</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"Cntl1"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      Name: </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"name"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="tag">/&gt;</span></li><li class="L9"><span class="pln">      </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"greet()"</span><span class="tag">&gt;</span><span class="pln">Greet</span><span class="tag">&lt;/button&gt;</span></li><li class="L0"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L1"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L2"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="js3">
+<pre class="prettyprint linenums" ng-set-text="script.js-230"><ol class="linenums"><li class="L0"><span class="kwd">function</span><span class="pln"> </span><span class="typ">Cntl1</span><span class="pun">(</span><span class="pln">$window</span><span class="pun">,</span><span class="pln"> $scope</span><span class="pun">){</span></li><li class="L1"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'World'</span><span class="pun">;</span></li><li class="L2"><span class="pln">&nbsp;</span></li><li class="L3"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">greet </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">    </span><span class="pun">(</span><span class="pln">$window</span><span class="pun">.</span><span class="pln">mockWindow </span><span class="pun">||</span><span class="pln"> $window</span><span class="pun">).</span><span class="pln">alert</span><span class="pun">(</span><span class="str">'Hello '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> $scope</span><span class="pun">.</span><span class="pln">name</span><span class="pun">);</span></li><li class="L5"><span class="pln">  </span><span class="pun">}</span></li><li class="L6"><span class="pun">}</span></li></ol></pre>
+
+</div>
+<div class="tab-pane" id="test3">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-232"><ol class="linenums"><li class="L0"><span class="pln">it</span><span class="pun">(</span><span class="str">'should calculate expression in binding'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">  </span><span class="kwd">var</span><span class="pln"> alertText</span><span class="pun">;</span></li><li class="L2"><span class="pln">  </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">addFutureAction</span><span class="pun">(</span><span class="str">'set mock'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$window</span><span class="pun">,</span><span class="pln"> $document</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">done</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">    $window</span><span class="pun">.</span><span class="pln">mockWindow </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span></li><li class="L4"><span class="pln">      alert</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">text</span><span class="pun">){</span><span class="pln"> alertText </span><span class="pun">=</span><span class="pln"> text</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></li><li class="L5"><span class="pln">    </span><span class="pun">};</span></li><li class="L6"><span class="pln">    </span><span class="kwd">done</span><span class="pun">();</span></li><li class="L7"><span class="pln">  </span><span class="pun">});</span></li><li class="L8"><span class="pln">  element</span><span class="pun">(</span><span class="str">':button:contains(Greet)'</span><span class="pun">).</span><span class="pln">click</span><span class="pun">();</span></li><li class="L9"><span class="pln">  expect</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">addFuture</span><span class="pun">(</span><span class="str">'alert text'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="kwd">done</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L0"><span class="pln">    </span><span class="kwd">done</span><span class="pun">(</span><span class="kwd">null</span><span class="pun">,</span><span class="pln"> alertText</span><span class="pun">);</span></li><li class="L1"><span class="pln">  </span><span class="pun">})).</span><span class="pln">toBe</span><span class="pun">(</span><span class="str">'Hello World'</span><span class="pun">);</span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+
+</div>
+</div></div>
+
+<h3>效果</h3>
+<div class="well">
+	<iframe src="./17.AngularJS 表达式(Expressions)_files/index(2).html"></iframe>
+</div>
+<hr>
+<h3>容错性</h3>
+<p>表达式的解析对undefined和null具有容错性。在JavaScript中，解析'a,b,c'时，如果'a'不是一个对象会抛出异常。在一些语言中这可能会有用，但表达式的解析在Angular中主要用在数据绑定上，我们会像下面这样使用表达式：</p>
+<pre><code><span class="pln">    </span><span class="pun">{{</span><span class="pln">a</span><span class="pun">.</span><span class="pln">b</span><span class="pun">.</span><span class="pln">c</span><span class="pun">}}</span></code></pre>
+<p>此时如果'a'是未定义的（也许我们正等着服务器响应数据，在不久的将来其会被定义），解析抛出异常将不再合理。如果表达式不具有容错性的话，我们的代码会变的繁杂且影响阅读，例如：<code><span class="pun">{{((</span><span class="pln">a</span><span class="pun">||{}).</span><span class="pln">b</span><span class="pun">||{}).</span><span class="pln">c</span><span class="pun">}}</span></code>。</p>
+<p>类似的，在undefined和null的对象上调用方法'a.b.c()'时会返回undefined。</p>
+<hr>
+<h3 id="属性解析_禁止控制流语句">禁止控制流语句</h3>
+<p>在表达式中禁止写控制流语句。这背后的原因在于，Angular设计哲学的核心认为，应用逻辑应该在控制器中，而不是在视图中控制。如果你需要条件表达式，循环或者抛出异常出现在你的视图表达式中，请将其委托到JavaScript方法中执行。</p>
+		
+		
+	
+	<div class="ad1">	
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 336 x 280 -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="9942648348"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>	
+	
+		</div>
+	</div>
+</div>
+<footer>
+	<p>Copyright © 2014 - 2018 <a href="http://www.angularjs.net.cn/">AngularJS中文网</a>, <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备15074038号-4</a>, All Rights Reserved.
+
+</p>
+</footer>
+<script type="text/javascript">
+    /*图+推广*/
+    /*建议投放在200*300以上的图片*/
+    var cpro_id = "u1948815";
+</script>
+<script type="text/javascript" src="./17.AngularJS 表达式(Expressions)_files/i.js.下载"></script>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?12ec03a62d55d8fb4b144b14ccedecec";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<script src="./17.AngularJS 表达式(Expressions)_files/jquery.js.下载"></script>
+<script src="./17.AngularJS 表达式(Expressions)_files/common.js.下载"></script>
+<script src="./17.AngularJS 表达式(Expressions)_files/bootstrap.min.js.下载"></script>
+
+</body></html>

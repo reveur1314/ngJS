@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://www.angularjs.net.cn/tutorial/8.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AngularJS 过滤器（Filters）</title>
+<link rel="icon" href="http://www.angularjs.net.cn/Application/Home/View/Public/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="./12.AngularJS 过滤器（Filters）_files/bootstrap.min.css">
+<link href="./12.AngularJS 过滤器（Filters）_files/prettify.css" rel="stylesheet">
+<script src="./12.AngularJS 过滤器（Filters）_files/hm.js.下载"></script><script src="./12.AngularJS 过滤器（Filters）_files/prettify.js.下载"></script>
+
+
+<link rel="stylesheet" href="./12.AngularJS 过滤器（Filters）_files/style.css">
+
+</head>
+<body onload="prettyPrint()">
+<div id="top">
+	<div class="container">
+	<div class="logo"><a href="http://www.angularjs.net.cn/">AngularJs中文网</a></div>
+	<ul>
+		<li><a href="http://www.angularjs.net.cn/">首页</a></li>
+		<li><a href="http://www.angularjs.net.cn/tutorial/">AngularJS 教程</a></li>
+		
+		<li><a href="http://www.angularjs.net.cn/phonecat/">AngularJS PhoneCat</a></li>
+		<li><a href="http://www.angularjs.net.cn/download/">AngularJS 下载</a></li>
+		<li><a href="http://www.angularjs.net.cn/api/">AngularJS api</a></li>
+		<li style="display:none;"><a href="http://www.angularjs.net.cn/angular-seed">AngularJS Seed</a></li>
+	<li><a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=iuvvbh9n" onclick="_hmt.push([&#39;_trackEvent&#39;, &#39;nav&#39;, &#39;click&#39;, &#39;Ecs&#39;])" target="_blank">Ecs服务器</a></li>
+	
+
+	
+	</ul>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+<ul>
+	<li><a href="http://www.angularjs.net.cn/tutorial/1.html">简介（Introduction）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/16.html">引导程序（Bootstrap）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/18.html">概念概述(Conceptual Overview)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/15.html">Html编译（HTML Compiler）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/10.html">数据绑定（Data Binding）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/2.html">控制器(Controllers)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/19.html">服务（Services）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/12.html">作用域(Scope)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/17.html">依赖注入(Dependency Injection)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/13.html">模板（Templates）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/11.html">使用css(Working With CSS)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/8.html">过滤器（Filters）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/4.html">表单(Forms)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/5.html">指令(Directives)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/20.html">Components</a></li><li><a href="http://www.angularjs.net.cn/tutorial/21.html">Component Router</a></li><li><a href="http://www.angularjs.net.cn/tutorial/7.html">动画(Animations)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/6.html">模块(Modules)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/3.html">表达式(Expressions)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/9.html">供应者（Providers）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/14.html">$location</a></li><li><a href="http://www.angularjs.net.cn/tutorial/22.html">单元测试</a></li><li><a href="http://www.angularjs.net.cn/tutorial/23.html">端对端测试</a></li></ul>
+<div id="ad">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 160x600 -->
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="1088261149"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+		<div class="col-md-9">
+			<div class="page-header"><h1>AngularJS 过滤器（Filters）</h1></div>
+
+<div style="margin-bottom:10px;">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 728x90 --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="2639707541"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 728x90 --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="2639707541"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+			
+			
+
+		<p>过滤器用来格式化表达式中的值。它可以用在视图模板(templates)、控制器(controllers)或者服务(services)中。我们很容易就能自定义过滤器。</p>
+<p>过滤器的API可以在<a href="http://www.angularjs.net.cn/tutorial/api/ng.$filterProvider"><code><span class="pln">filterProvider</span></code></a>中找到。</p>
+<hr>
+<h3>在模板中使用过滤器</h3>
+<p>过滤器可以应用在视图模板中的表达式中，按如下的格式：</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pun">{{</span><span class="pln"> </span><span class="pun">表达式</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="pun">过滤器名</span><span class="pln"> </span><span class="pun">}}</span></li></ol></pre>
+<p class="ng-binding">例如，在"{{ 12 | currency }}"标记中格式化了数字12作为一种货币的形式来显示，它使用了<a href="http://www.angularjs.net.cn/api/87.html"><code>currency</code></a>过滤器。格式化之后的结果是"$12.00"。</p>
+<p>过滤器可以应用在另外一个过滤器的结果之上。这叫做“链式”使用，按如下格式：</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pun">{{</span><span class="pln"> </span><span class="pun">表达式</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="pun">过滤器</span><span class="lit">1</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="pun">过滤器</span><span class="lit">2</span><span class="pln"> </span><span class="pun">|...}}</span><span class="pln"> </span></li></ol></pre>
+<p>过滤器可以拥有（多个）参数，按如下格式：</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pun">{{</span><span class="pln"> </span><span class="pun">表达式</span><span class="pln"> </span><span class="pun">|</span><span class="pln"> </span><span class="pun">过滤器:参数</span><span class="lit">1</span><span class="pun">:参数</span><span class="lit">2</span><span class="pun">:...}}</span></li></ol></pre>
+<p class="ng-binding">例如，在“{{ 1234 | number:2 }}”的标记中格式化显示了数字1234为小数点后两位，使用了<a href="http://www.angularjs.net.cn/api/93.html"><code>number</code></a>过滤器。显示的结果为"1,234.00"。</p>
+<hr>
+<h3>在控制器和服务中使用过滤器</h3>
+<p>你同样可以在控制器和服务中使用过滤器。在这种情况下，在你的控制器或者服务中添加以“&lt;过滤器名&gt;Filter”为名的依赖。例如，使用"numberFilter"为依赖时，会相应的注入number过滤器。</p>
+<p class="ng-binding">下面的例子展示了一个名为filter的过滤器。
+这个过滤器根据不同的参数将一个数组拆分成多个子数组。这个过滤器可以在模板中以{{ctrl.array | filter:'a'}}`的方式来使用，这会以'a'作为查询字符串来进行过滤。但是，在视图模板中使用过滤器会在每次的更新中重新调用过滤器，当数组很大的时候，开销会很大。</p>
+<p>紧接着下面的例子在控制器中直接调用了这个过滤器。
+使用这种方式，控制器可以在需要的时候手动调用（例如在从后台获取数据或者过滤器中的表达式有改变的时候）。</p>
+<h3>源码</h3>
+
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+	 <li class="active"><a href="http://www.angularjs.net.cn/tutorial/8.html#index1" role="tab" data-toggle="tab">index.html</a></li>
+	 <li><a href="http://www.angularjs.net.cn/tutorial/8.html#script1" role="tab" data-toggle="tab">script.js</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="index1">
+<pre class="prettyprint linenums "><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"FilterInControllerModule"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"FilterController as ctrl"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;div&gt;</span></li><li class="L9"><span class="pln">        All entries:</span></li><li class="L0"><span class="pln">        </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng-repeat</span><span class="pun">=</span><span class="atv">"entry in ctrl.array"</span><span class="tag">&gt;</span><span class="pln">{{entry.name}} </span><span class="tag">&lt;/span&gt;</span></li><li class="L1"><span class="pln">      </span><span class="tag">&lt;/div&gt;</span></li><li class="L2"><span class="pln">      </span><span class="tag">&lt;div&gt;</span></li><li class="L3"><span class="pln">        Entries that contain an "a":</span></li><li class="L4"><span class="pln">        </span><span class="tag">&lt;span</span><span class="pln"> </span><span class="atn">ng-repeat</span><span class="pun">=</span><span class="atv">"entry in ctrl.filteredArray"</span><span class="tag">&gt;</span><span class="pln">{{entry.name}} </span><span class="tag">&lt;/span&gt;</span></li><li class="L5"><span class="pln">      </span><span class="tag">&lt;/div&gt;</span></li><li class="L6"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L7"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L8"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+</div>
+<div class="tab-pane" id="script1">
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'FilterInControllerModule'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[]).</span></li><li class="L1"><span class="pln">  controller</span><span class="pun">(</span><span class="str">'FilterController'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'filterFilter'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">filterFilter</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">    </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">array </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span></li><li class="L3"><span class="pln">      </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'asnowwolf'</span><span class="pun">},</span></li><li class="L4"><span class="pln">      </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'why520crazy'</span><span class="pun">},</span></li><li class="L5"><span class="pln">      </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'joe'</span><span class="pun">},</span></li><li class="L6"><span class="pln">      </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'ckken'</span><span class="pun">},</span></li><li class="L7"><span class="pln">      </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'lightma'</span><span class="pun">},</span></li><li class="L8"><span class="pln">      </span><span class="pun">{</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'FrankyYang'</span><span class="pun">}</span></li><li class="L9"><span class="pln">    </span><span class="pun">];</span></li><li class="L0"><span class="pln">    </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">filteredArray </span><span class="pun">=</span><span class="pln"> filterFilter</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">array</span><span class="pun">,</span><span class="pln"> </span><span class="str">'a'</span><span class="pun">);</span></li><li class="L1"><span class="pln">  </span><span class="pun">}]);</span></li></ol></pre>
+
+</div>
+</div>
+</div>
+<h3>效果</h3>
+<div class="well">
+	<iframe src="./12.AngularJS 过滤器（Filters）_files/index.html"></iframe>
+</div>
+<h3 id="创建自定义过滤器">创建自定义过滤器</h3>
+<p>创建自定义过滤器的过程很简单:仅仅需要在模块中注册一个新的过滤器工厂方法。其中使用了<a href="http://www.angularjs.net.cn/tutorial/api/ng.$filterProvider"><code><code><span class="pln">filterProvider</span></code></code></a>。这个工厂方法应该返回一个以输入值为第一个参数的新过滤方法，过滤器中的参数都会作为附加参数传递给它。</p>
+<p>下面的示例过滤器反转显示一个字符串。另外，它可以根据参数把字母全部大写。</p>
+<h3>源码</h3>
+
+<div class="tabbable">
+<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="http://www.angularjs.net.cn/tutorial/8.html#index2" role="tab" data-toggle="tab">index.html</a></li>
+	<li><a href="http://www.angularjs.net.cn/tutorial/8.html#js2" role="tab" data-toggle="tab">todo.js</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active	" id="index2">
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"MyReverseModule"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"Ctrl"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"greeting"</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="tag">&gt;&lt;br&gt;</span></li><li class="L9"><span class="pln">      未添加过滤器: {{greeting}}</span><span class="tag">&lt;br&gt;</span></li><li class="L0"><span class="pln">      逆置: {{greeting|reverse}}</span><span class="tag">&lt;br&gt;</span></li><li class="L1"><span class="pln">      逆置 + 大写: {{greeting|reverse:true}}</span><span class="tag">&lt;br&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L3"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L4"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+</div>
+<div class="tab-pane" id="js2">
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'myReverseFilterApp'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[])</span></li><li class="L1"><span class="pun">.</span><span class="pln">filter</span><span class="pun">(</span><span class="str">'reverse'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L2"><span class="pln">  </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">input</span><span class="pun">,</span><span class="pln"> uppercase</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">    input </span><span class="pun">=</span><span class="pln"> input </span><span class="pun">||</span><span class="pln"> </span><span class="str">''</span><span class="pun">;</span></li><li class="L4"><span class="pln">    </span><span class="kwd">var</span><span class="pln"> </span><span class="kwd">out</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">''</span><span class="pun">;</span></li><li class="L5"><span class="pln">    </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> input</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">      </span><span class="kwd">out</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> input</span><span class="pun">.</span><span class="pln">charAt</span><span class="pun">(</span><span class="pln">i</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">out</span><span class="pun">;</span></li><li class="L7"><span class="pln">    </span><span class="pun">}</span></li><li class="L8"><span class="pln">    </span><span class="com">// conditional based on optional argument</span></li><li class="L9"><span class="pln">    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">uppercase</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L0"><span class="pln">      </span><span class="kwd">out</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">out</span><span class="pun">.</span><span class="pln">toUpperCase</span><span class="pun">();</span></li><li class="L1"><span class="pln">    </span><span class="pun">}</span></li><li class="L2"><span class="pln">    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">out</span><span class="pun">;</span></li><li class="L3"><span class="pln">  </span><span class="pun">};</span></li><li class="L4"><span class="pun">})</span></li><li class="L5"><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'MyController'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'$scope'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'reverseFilter'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">,</span><span class="pln"> reverseFilter</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">greeting </span><span class="pun">=</span><span class="pln"> </span><span class="str">'hello'</span><span class="pun">;</span></li><li class="L7"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">filteredGreeting </span><span class="pun">=</span><span class="pln"> reverseFilter</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">.</span><span class="pln">greeting</span><span class="pun">);</span></li><li class="L8"><span class="pun">}]);</span></li></ol></pre>
+
+</div>
+</div></div>
+<h3>效果</h3>
+<div class="well ">
+	<iframe src="./12.AngularJS 过滤器（Filters）_files/index(1).html"></iframe>
+</div>
+
+
+		
+	<div class="ad1">	
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 336 x 280 -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="9942648348"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>	
+	
+		</div>
+	</div>
+</div>
+<footer>
+	<p>Copyright © 2014 - 2018 <a href="http://www.angularjs.net.cn/">AngularJS中文网</a>, <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备15074038号-4</a>, All Rights Reserved.
+
+</p>
+</footer>
+<script type="text/javascript">
+    /*图+推广*/
+    /*建议投放在200*300以上的图片*/
+    var cpro_id = "u1948815";
+</script>
+<script type="text/javascript" src="./12.AngularJS 过滤器（Filters）_files/i.js.下载"></script>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?12ec03a62d55d8fb4b144b14ccedecec";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<script src="./12.AngularJS 过滤器（Filters）_files/jquery.js.下载"></script>
+<script src="./12.AngularJS 过滤器（Filters）_files/common.js.下载"></script>
+<script src="./12.AngularJS 过滤器（Filters）_files/bootstrap.min.js.下载"></script>
+
+</body></html>

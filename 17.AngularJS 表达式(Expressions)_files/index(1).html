@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://docs.angularjs.org/examples/example-expression-eval/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  
+  <title>Example - example-expression-eval</title>
+  
+
+  <script src="./angular.min.js.下载"></script>
+  <script src="./script.js.下载"></script>
+  
+
+  
+</head>
+<body ng-app="expressionExample" class="ng-scope">
+  <div ng-controller="ExampleController" class="expressions ng-scope">
+  Expression:
+  <input type="text" ng-model="expr" size="80" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+  <button ng-click="addExp(expr)">Evaluate</button>
+  <ul>
+   <!-- ngRepeat: expr in exprs track by $index -->
+  </ul>
+</div>
+
+</body></html>

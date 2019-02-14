@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)https://docs.angularjs.org/examples/example-location-html5-mode/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+  
+  <title>Example - example-location-html5-mode</title>
+  
+
+  <script src="./angular.min.js.下载"></script>
+  <script src="./app.js.下载"></script>
+  <script src="./fakeBrowser.js.下载"></script>
+  <script src="./addressBar.js.下载"></script>
+  
+
+  
+</head>
+<body ng-app="html5-mode" class="ng-scope">
+  <div ng-controller="LocationController" class="ng-scope">
+  <div ng-address-bar="">Address: <input id="addressBar" type="text" style="width: 400px"></div><br><br>
+  <div>
+    $location.protocol() = <span ng-bind="$location.protocol()" class="ng-binding">http</span> <br>
+    $location.host() = <span ng-bind="$location.host()" class="ng-binding">www.example.com</span> <br>
+    $location.port() = <span ng-bind="$location.port()" class="ng-binding">80</span> <br>
+    $location.path() = <span ng-bind="$location.path()" class="ng-binding">/path</span> <br>
+    $location.search() = <span ng-bind="$location.search()" class="ng-binding">{"a":"b"}</span> <br>
+    $location.hash() = <span ng-bind="$location.hash()" class="ng-binding">h</span> <br>
+  </div>
+  <div id="navigation">
+    <a href="http://www.example.com/base/first?a=b">/base/first?a=b</a> |
+    <a href="http://www.example.com/base/sec/ond?flag#hash">sec/ond?flag#hash</a> |
+    <a href="https://docs.angularjs.org/other-base/another?search">external</a>
+  </div>
+</div>
+
+</body></html>

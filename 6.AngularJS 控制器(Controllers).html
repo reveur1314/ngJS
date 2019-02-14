@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://www.angularjs.net.cn/tutorial/2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AngularJS 控制器(Controllers)</title>
+<link rel="icon" href="http://www.angularjs.net.cn/Application/Home/View/Public/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="./6.AngularJS 控制器(Controllers)_files/bootstrap.min.css">
+<link href="./6.AngularJS 控制器(Controllers)_files/prettify.css" rel="stylesheet">
+<script src="./6.AngularJS 控制器(Controllers)_files/hm.js.下载"></script><script src="./6.AngularJS 控制器(Controllers)_files/prettify.js.下载"></script>
+
+
+<link rel="stylesheet" href="./6.AngularJS 控制器(Controllers)_files/style.css">
+
+</head>
+<body onload="prettyPrint()">
+<div id="top">
+	<div class="container">
+	<div class="logo"><a href="http://www.angularjs.net.cn/">AngularJs中文网</a></div>
+	<ul>
+		<li><a href="http://www.angularjs.net.cn/">首页</a></li>
+		<li><a href="http://www.angularjs.net.cn/tutorial/">AngularJS 教程</a></li>
+		
+		<li><a href="http://www.angularjs.net.cn/phonecat/">AngularJS PhoneCat</a></li>
+		<li><a href="http://www.angularjs.net.cn/download/">AngularJS 下载</a></li>
+		<li><a href="http://www.angularjs.net.cn/api/">AngularJS api</a></li>
+		<li style="display:none;"><a href="http://www.angularjs.net.cn/angular-seed">AngularJS Seed</a></li>
+	<li><a href="https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=iuvvbh9n" onclick="_hmt.push([&#39;_trackEvent&#39;, &#39;nav&#39;, &#39;click&#39;, &#39;Ecs&#39;])" target="_blank">Ecs服务器</a></li>
+	
+
+	
+	</ul>
+	</div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+<ul>
+	<li><a href="http://www.angularjs.net.cn/tutorial/1.html">简介（Introduction）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/16.html">引导程序（Bootstrap）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/18.html">概念概述(Conceptual Overview)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/15.html">Html编译（HTML Compiler）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/10.html">数据绑定（Data Binding）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/2.html">控制器(Controllers)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/19.html">服务（Services）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/12.html">作用域(Scope)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/17.html">依赖注入(Dependency Injection)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/13.html">模板（Templates）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/11.html">使用css(Working With CSS)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/8.html">过滤器（Filters）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/4.html">表单(Forms)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/5.html">指令(Directives)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/20.html">Components</a></li><li><a href="http://www.angularjs.net.cn/tutorial/21.html">Component Router</a></li><li><a href="http://www.angularjs.net.cn/tutorial/7.html">动画(Animations)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/6.html">模块(Modules)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/3.html">表达式(Expressions)</a></li><li><a href="http://www.angularjs.net.cn/tutorial/9.html">供应者（Providers）</a></li><li><a href="http://www.angularjs.net.cn/tutorial/14.html">$location</a></li><li><a href="http://www.angularjs.net.cn/tutorial/22.html">单元测试</a></li><li><a href="http://www.angularjs.net.cn/tutorial/23.html">端对端测试</a></li></ul>
+<div id="ad">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 160x600 -->
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="1088261149"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+		<div class="col-md-9">
+			<div class="page-header"><h1>AngularJS 控制器(Controllers)</h1></div>
+
+<div style="margin-bottom:10px;">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 728x90 --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="2639707541"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 728x90 --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="2639707541"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+			
+			
+<p>在Angular中，控制器就像 JavaScript 中的<strong>构造函数</strong>一般，是用来增强 <a href="http://www.angularjs.net.cn/tutorial/12.html">Angular作用域(scope)</a> 的。</p>
+<p>当一个控制器通过 <a href="http://www.angularjs.net.cn/tutorial/2.html"><code>ng-controller</code></a> 指令被添加到DOM中时，ng 会调用该控制器的<strong>构造函数</strong>来生成一个控制器对象，这样，就创建了一个新的<strong>子级 作用域(scope)</strong>。在这个构造函数中，作用域(scope)会作为<code>$scope</code>参数注入其中，并允许用户代码访问它。</p>
+<p>一般情况下，我们使用控制器做两件事：</p>
+<ul>
+<li>初始化 <code>$scope</code> 对象</li>
+<li>为 <code>$scope</code> 对象添加行为（方法）</li>
+</ul>
+<hr>
+<h2>初始化 <code>$scope</code> 对象</h2>
+<p>当我们创建应用程序时，我们通常要为Angular的 <code>$scope</code> 对象设置初始状态，这是通过在 <code>$scope</code> 对象上添加属性实现的。这些属性就是供在视图中展示用的<strong>视图模型</strong>（<strong>view model</strong>），它们在与此控制器相关的模板中均可以访问到。</p>
+<p>下面的例子中定义了一个非常简单的控制器构造函数：<code><span class="typ">GreetingCtrl</span></code>，我们在该控制器所创建的 scope 中添加一个 <code>greeting</code> 属性：</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">    </span><span class="kwd">function</span><span class="pln"> </span><span class="typ">GreetingCtrl</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">        $scope</span><span class="pun">.</span><span class="pln">greeting </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Hola!'</span><span class="pun">;</span></li><li class="L2"><span class="pln">    </span><span class="pun">}</span></li></ol></pre>
+<p>如上所示，我们有了一个控制器，它初始化了一个 <code>$scope</code>对象，并且有一个<code>greeting</code>属性。当我们把该控制器关联到DOM节点上，模板就可以通过数据绑定来读取它：</p>
+<pre class="prettyprint linenums ng-binding"><ol class="linenums"><li class="L0"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"GreetingCtrl"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">      </span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li></ol></pre>
+<p><strong>注意</strong>：虽然Angular允许我们在全局作用域下(window)定义控制器函数，但<strong>建议不要</strong>用这种方式。在一个实际的应用程序中，推荐在 <a href="http://www.angularjs.net.cn/tutorial/6.html">Angular模块</a> 下通过 <code><span class="pun">.</span>controller</code> 为你的应用创建控制器，如下所示：</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">    </span><span class="kwd">var</span><span class="pln"> myApp </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'myApp'</span><span class="pun">,[]);</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="pln">    myApp</span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'GreetingCtrl'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'$scope'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">        $scope</span><span class="pun">.</span><span class="pln">greeting </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Hola!'</span><span class="pun">;</span></li><li class="L4"><span class="pln">    </span><span class="pun">}]);</span></li></ol></pre>
+<p>在上面例子中，我们使用<strong>内联注入</strong>的方式声明 <code><span class="typ">GreetingCtrl</span></code> 依赖于Angular提供的 <code>$scope</code> 服务。更多详情，参阅 <a href="http://www.angularjs.net.cn/tutorial/17.html">依赖注入</a> 。</p>
+<hr>
+<h2>为 <code>$scope</code> 对象添加行为</h2>
+<p>为了对事件作出响应，或是在视图中执行计算，我们需要为 scope 提供相关的行为操作的逻辑。上面一节中，我们为 scope 添加属性来让模板可以访问数据模型，现在，我们为 <code>$scope</code> 添加方法来让它提供相关的交互逻辑。添加完之后，这些方法就可以在<strong>模板/视图</strong>中被调用了。</p>
+<p>下面的例子将演示为控制器的 scope 添加方法，它用来使一个数字翻倍：</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">    </span><span class="kwd">var</span><span class="pln"> myApp </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'myApp'</span><span class="pun">,[]);</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="pln">    myApp</span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'DoubleCtrl'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'$scope'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">        $scope</span><span class="pun">.</span><span class="kwd">double</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">value</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> value </span><span class="pun">*</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln"> </span><span class="pun">};</span></li><li class="L4"><span class="pln">    </span><span class="pun">}]);</span></li></ol></pre>
+<p>当上述控制器被添加到DOM之后，<code><span class="kwd">double</span></code> 方法即可被调用，如在模板中的一个Angular表达式中：</p>
+<pre class="prettyprint linenums ng-binding"><ol class="linenums"><li class="L0"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"DoubleCtrl"</span><span class="tag">&gt;</span></li><li class="L1"><span class="pln">      </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"num"</span><span class="tag">&gt;</span><span class="pln"> 翻倍后等于 </span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li></ol></pre>
+<p>如 <a href="http://www.angularjs.net.cn/tutorial/guide/concepts">概述</a> 部分所指出的一样，任何对象（或者原生类型的变量）被添加到 scope 后都将成为 scope 的属性，作为数据模型供模板/视图调用。任何方法被添加到 scope 后，也能在模板/视图中通过Angular表达式或是Angular的事件处理器（如：<a href="http://www.angularjs.net.cn/api/11.html"><code>ngClick</code></a>）调用。</p>
+<hr>
+<h2 id="正确使用控制器">正确使用控制器</h2>
+<p>通常情况下，控制器不应被赋予太多的责任和义务，它只需要负责一个单一视图所需的业务逻辑。</p>
+<p>最常见的保持控制器“纯度”的方法是将那些不属于控制器的逻辑都封装到服务（services）中，然后在控制器中通过依赖注入调用相关服务。详见指南中的 <a href="http://www.angularjs.net.cn/tutorial/guide/di">依赖注入</a> <a href="http://www.angularjs.net.cn/tutorial/19.html">服务</a> 这两部分。</p>
+<p>注意，下面的场合<strong>千万不要用控制器</strong>：</p>
+<ul>
+<li>任何形式的DOM操作：控制器只应该包含业务逻辑。DOM操作则属于应用程序的表现层逻辑操作，向来以测试难度之高闻名于业界。把任何表现层的逻辑放到控制器中将会大大增加业务逻辑的测试难度。ng 提供数据绑定 （<a href="http://www.angularjs.net.cn/tutorial/guide/databinding">数据绑定</a>） 来实现自动化的DOM操作。如果需要手动进行DOM操作，那么最好将表现层的逻辑封装在 <a href="http://www.angularjs.net.cn/tutorial/5.html">指令</a> 中</li>
+<li>格式化输入：使用 <a href="http://www.angularjs.net.cn/tutorial/4.html">angular表单控件</a> 代替</li>
+<li>过滤输出：使用 <a href="http://www.angularjs.net.cn/tutorial/8.html">angular过滤器</a> 代替</li>
+<li>在控制器间复用有状态或无状态的代码：使用<a href="http://www.angularjs.net.cn/tutorial/19.html">angular服务</a> 代替</li>
+<li>管理其它部件的生命周期（如手动创建 service 实例）</li>
+</ul>
+<hr>
+<h2>将控制器与 scope 对象关联</h2>
+<p>通过两种方法可以实现控制器和 scope 对象的关联：</p>
+<ul>
+<li><a href="http://www.angularjs.net.cn/api/13.html"><code>ngController</code>指令</a> 这个指令就会创建一个新的 scope</li>
+<li><a href="http://www.angularjs.net.cn/api/81.html">$route路由服务</a></li>
+</ul>
+<hr>
+<h3>简单的控制器范例</h3>
+<p>为了更深入地阐释Angular的控制器是如何工作的，我们用以下几个部件来构建一个小型应用：</p>
+<ul>
+<li>一个由两个按钮和一条简单反馈构成的<a href="http://www.angularjs.net.cn/tutorial/13.html">模板</a></li>
+<li>一个名为 <code>spice</code> 的数据模型对象，是一个字符串</li>
+<li>一个拥有两个方法的控制器，可以设置<code>spice</code> 的值</li>
+</ul>
+<p>模板中的消息包含了一个到数据模型 <code>spice</code> 的绑定，默认值为 <code>very</code>。之后，取决于哪个按钮被点击，<code>spice</code> 的值会被置为 <code>chili</code> 或是 <code>jalape<span class="pun">ñ</span>o</code> ，受益于数据绑定，模板中的这个消息会在 <code>spice</code> 变化时自动更新。</p>
+
+<h3>源码</h3>
+
+<div class="tabbable">
+
+<ul class="nav nav-tabs" role="tablist">
+	<li class="active"><a href="http://www.angularjs.net.cn/tutorial/2.html#html1" role="tab" data-toggle="tab">index.html</a></li>
+	<li><a href="http://www.angularjs.net.cn/tutorial/2.html#js1" role="tab" data-toggle="tab">script.js</a></li>
+</ul>
+
+<div class="tab-content">
+	<div class="tab-pane active" title="index.html" id="html1">
+<pre class="prettyprint linenums ng-binding"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"spicyApp1"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"spicyApp1"</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"SpicyCtrl"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">     </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"chiliSpicy()"</span><span class="tag">&gt;</span><span class="pln">Chili</span><span class="tag">&lt;/button&gt;</span></li><li class="L9"><span class="pln">     </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"jalapenoSpicy()"</span><span class="tag">&gt;</span><span class="pln">Jalapeño</span><span class="tag">&lt;/button&gt;</span></li><li class="L0"><span class="pln">     </span><span class="tag">&lt;p&gt;</span><span class="pln">The food is  spicy!</span><span class="tag">&lt;/p&gt;</span></li><li class="L1"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L3"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+</div>
+<div class="tab-pane" title="script.js" id="js1">
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="kwd">var</span><span class="pln"> myApp </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'spicyApp1'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[]);</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="pln">myApp</span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'SpicyCtrl'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'$scope'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">){</span></li><li class="L3"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">spice </span><span class="pun">=</span><span class="pln"> </span><span class="str">'very'</span><span class="pun">;</span></li><li class="L4"><span class="pln">    </span></li><li class="L5"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">chiliSpicy </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">        $scope</span><span class="pun">.</span><span class="pln">spice </span><span class="pun">=</span><span class="pln"> </span><span class="str">'chili'</span><span class="pun">;</span></li><li class="L7"><span class="pln">    </span><span class="pun">};</span></li><li class="L8"><span class="pln">    </span></li><li class="L9"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">jalapenoSpicy </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L0"><span class="pln">        $scope</span><span class="pun">.</span><span class="pln">spice </span><span class="pun">=</span><span class="pln"> </span><span class="str">'jalapeño'</span><span class="pun">;</span></li><li class="L1"><span class="pln">    </span><span class="pun">};</span></li><li class="L2"><span class="pun">}]);</span></li></ol></pre>
+</div>
+</div></div>
+<h3>效果</h3>
+<div class="well">
+	<iframe src="./6.AngularJS 控制器(Controllers)_files/index.html"></iframe>
+</div>
+
+<p>上面的例子中有几个值得注意的地方：</p>
+<ul>
+<li><code>ng<span class="pun">-</span>controller</code> 指令用来为我们的模板创建一个 scope ，而且它受到 <code><span class="typ">SpicyCtrl</span></code> 控制器的管理</li>
+<li><code><span class="typ">SpicyCtrl</span></code> 就是一个普通的 JavaScript 函数，只是命名上以首字母大写，以 "Ctrl" 或 "Controller" 结尾</li>
+<li>把一个属性指定给 <code>$scope</code> 这样会创建或更新一个数据模型</li>
+<li>控制器的方法可以通过在 scope 中添加函数来创建，如 <code>chiliSpicy</code> 方法</li>
+<li>控制器的方法和属性在模板/视图中都是可以获得的，在上例中的 <code><span class="tag">&lt;div&gt;</span></code> 元素及其子节点</li>
+</ul>
+<hr>
+<h3>控制器范例扩展--带参数</h3>
+<p>控制器方法可以带参数，我们看一下如下范例（是上面例子的变种）：</p>
+<h3>源码</h3>
+<div class="tabbable" role="tablist">
+
+<ul class="nav nav-tabs">
+	<li class="active"><a href="http://www.angularjs.net.cn/tutorial/2.html#html2" role="tab" data-toggle="tab">index.html</a></li>
+	<li><a href="http://www.angularjs.net.cn/tutorial/2.html#js2" role="tab" data-toggle="tab">script.js</a></li>
+</ul>
+
+<div class="tab-content">
+
+<div class="tab-pane active" title="index.html" id="html2">
+<pre class="prettyprint linenums ng-binding" ng-set-text="index.html-212" ng-html-wrap="spicyApp2 angular.js script.js"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"spicyApp2"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"spicyApp2"</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"SpicyCtrl"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">     </span><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">ng-model</span><span class="pun">=</span><span class="atv">"customSpice"</span><span class="tag">&gt;</span></li><li class="L9"><span class="pln">     </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"spicy('chili')"</span><span class="tag">&gt;</span><span class="pln">Chili</span><span class="tag">&lt;/button&gt;</span></li><li class="L0"><span class="pln">     </span><span class="tag">&lt;button</span><span class="pln"> </span><span class="atn">ng-click</span><span class="pun">=</span><span class="atv">"spicy(customSpice)"</span><span class="tag">&gt;</span><span class="pln">Custom spice</span><span class="tag">&lt;/button&gt;</span></li><li class="L1"><span class="pln">     </span><span class="tag">&lt;p&gt;</span><span class="pln">The food is  spicy!</span><span class="tag">&lt;/p&gt;</span></li><li class="L2"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L3"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L4"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+
+</div>
+
+<div class="tab-pane" title="script.js" id="js2">
+<pre class="prettyprint linenums" ng-set-text="script.js-211"><ol class="linenums"><li class="L0"><span class="kwd">var</span><span class="pln"> myApp </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'spicyApp2'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[]);</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="pln">myApp</span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'SpicyCtrl'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'$scope'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">){</span></li><li class="L3"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">customSpice </span><span class="pun">=</span><span class="pln"> </span><span class="str">"wasabi"</span><span class="pun">;</span></li><li class="L4"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">spice </span><span class="pun">=</span><span class="pln"> </span><span class="str">'very'</span><span class="pun">;</span></li><li class="L5"><span class="pln">    </span></li><li class="L6"><span class="pln">    $scope</span><span class="pun">.</span><span class="pln">spicy </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">spice</span><span class="pun">){</span></li><li class="L7"><span class="pln">        $scope</span><span class="pun">.</span><span class="pln">spice </span><span class="pun">=</span><span class="pln"> spice</span><span class="pun">;</span></li><li class="L8"><span class="pln">    </span><span class="pun">};</span></li><li class="L9"><span class="pun">}]);</span></li></ol></pre>
+</div>
+</div></div>
+
+<h3>效果</h3>
+<div class="well">
+	<iframe src="./6.AngularJS 控制器(Controllers)_files/index(1).html"></iframe>
+</div>
+<p>注意上面的 <code><span class="typ">SpicyCtrl</span></code> 控制器现在只定义了一个 <code>spicy</code> 方法，带一个 <code>spice</code> 参数。然后在模板中，第一个按钮调用 <code>spicy</code> 方法的时候传进一个字符串常量 <code><span class="str">'chili'</span></code> ；第二个按钮则传进一个与<code><span class="tag">&lt;input&gt;</span></code>进行了双向绑定的数据模型 <code>customSpice</code>（初始值在 scope 中设置为了 <code><span class="str">'wasabi'</span></code>）。（译者注：这样在 <code><span class="tag">&lt;input&gt;</span></code> 输入框输入什么，点击第二个按钮时，<code><span class="tag">&lt;p&gt;</span></code> 标签就会显示 <code><span class="tag">&lt;input&gt;</span></code> 中的当前值。）</p>
+<hr>
+
+<h3>Scope 继承范例</h3>
+<p>我们常常会在不同层级的DOM结构中添加控制器。由于 <a href="http://www.angularjs.net.cn/tutorial/api/ng.directive:ngController"><code>ng<span class="pun">-</span>controller</code></a> 指令会创建新的子级 scope ，这样我们就会获得一个与DOM层级结构相对应的的基于继承关系的 scope 层级结构。（译者注：由于 Js 是基于原型的继承，所以）底层（内层）控制器的 <code>$scope</code> 能够访问在高层控制器的 scope 中定义的属性和方法。详情参见 <a href="https://github.com/angular/angular.js/wiki/Understanding-Scopes">理解“作用域”</a> 。</p>
+<p><em>译者注</em>：下面是一个拥有三层div结构，也就对应有三层 scope 继承关系的层级结构（不包括 rootScope 的话），demo中的蓝色边框很清晰的展现了 scope 的层级和DOM层级的对应关系。它还展示了“scope 是由 <code>ng<span class="pun">-</span>controller</code> 指令创建并由其对应的控制器所管理”这个概念。</p>
+<h3>源码</h3>
+
+<div source-edit="scopeInheritance" source-edit-deps="angular.js script.js" source-edit-html="index.html-215" source-edit-css="style.css-214" source-edit-js="script.js-213" source-edit-json="" source-edit-unit="" source-edit-scenario="" source-edit-protractor=""></div>
+
+
+<div class="tabbable">
+
+<ul class="nav nav-tabs" role="tablist">
+<li class="active"><a href="http://www.angularjs.net.cn/tutorial/2.html#html3" role="tab" data-toggle="tab">index.html</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/2.html#css3" role="tab" data-toggle="tab">style.css</a></li>
+<li><a href="http://www.angularjs.net.cn/tutorial/2.html#js3" role="tab" data-toggle="tab">script.js</a></li>
+</ul>
+
+<div class="tab-content">
+<div class="tab-pane active" title="index.html" id="html3">
+<pre class="prettyprint linenums ng-binding" ng-set-text="index.html-215" ng-html-wrap="scopeInheritance angular.js script.js"><ol class="linenums"><li class="L0"><span class="dec">&lt;!doctype html&gt;</span></li><li class="L1"><span class="tag">&lt;html</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"scopeInheritance"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  </span><span class="tag">&lt;head&gt;</span></li><li class="L3"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"http://code.angularjs.org/1.2.25/angular.min.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L4"><span class="pln">    </span><span class="tag">&lt;script</span><span class="pln"> </span><span class="atn">src</span><span class="pun">=</span><span class="atv">"script.js"</span><span class="tag">&gt;&lt;/script&gt;</span></li><li class="L5"><span class="pln">  </span><span class="tag">&lt;/head&gt;</span></li><li class="L6"><span class="pln">  </span><span class="tag">&lt;body&gt;</span></li><li class="L7"><span class="pln">    </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-app</span><span class="pun">=</span><span class="atv">"scopeInheritance"</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"spicy"</span><span class="tag">&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"MainCtrl"</span><span class="tag">&gt;</span></li><li class="L9"><span class="pln">        </span><span class="tag">&lt;p&gt;</span><span class="pln">Good {{timeOfDay}}, {{name}}!</span><span class="tag">&lt;/p&gt;</span></li><li class="L0"><span class="pln">    </span></li><li class="L1"><span class="pln">        </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"ChildCtrl"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">          </span><span class="tag">&lt;p&gt;</span><span class="pln">Good {{timeOfDay}}, {{name}} !</span><span class="tag">&lt;/p&gt;</span></li><li class="L3"><span class="pln">    </span></li><li class="L4"><span class="pln">          </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">ng-controller</span><span class="pun">=</span><span class="atv">"GrandChildCtrl"</span><span class="tag">&gt;</span></li><li class="L5"><span class="pln">            </span><span class="tag">&lt;p&gt;</span><span class="pln">Good {{timeOfDay}}, {{name}}!</span><span class="tag">&lt;/p&gt;</span></li><li class="L6"><span class="pln">          </span><span class="tag">&lt;/div&gt;</span></li><li class="L7"><span class="pln">        </span><span class="tag">&lt;/div&gt;</span></li><li class="L8"><span class="pln">      </span><span class="tag">&lt;/div&gt;</span></li><li class="L9"><span class="pln">    </span><span class="tag">&lt;/div&gt;</span></li><li class="L0"><span class="pln">  </span><span class="tag">&lt;/body&gt;</span></li><li class="L1"><span class="tag">&lt;/html&gt;</span></li></ol></pre>
+</div>
+<div class="tab-pane" title="style.css" id="css3">
+<pre class="prettyprint linenums" ng-set-text="style.css-214"><ol class="linenums"><li class="L0"><span class="pln">div</span><span class="pun">.</span><span class="pln">spicy div </span><span class="pun">{</span></li><li class="L1"><span class="pln">  padding</span><span class="pun">:</span><span class="pln"> </span><span class="lit">10px</span><span class="pun">;</span></li><li class="L2"><span class="pln">  border</span><span class="pun">:</span><span class="pln"> solid </span><span class="lit">2px</span><span class="pln"> blue</span><span class="pun">;</span></li><li class="L3"><span class="pun">}</span></li></ol></pre>
+</div>
+<div class="tab-pane" title="script.js" id="js3">
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="kwd">var</span><span class="pln"> myApp </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'scopeInheritance'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[]);</span></li><li class="L1"><span class="pln">myApp</span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'MainCtrl'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'$scope'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">){</span></li><li class="L2"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">timeOfDay </span><span class="pun">=</span><span class="pln"> </span><span class="str">'morning'</span><span class="pun">;</span></li><li class="L3"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Nikki'</span><span class="pun">;</span></li><li class="L4"><span class="pun">}]);</span></li><li class="L5"><span class="pln">myApp</span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'ChildCtrl'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'$scope'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">){</span></li><li class="L6"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Mattie'</span><span class="pun">;</span></li><li class="L7"><span class="pun">}]);</span></li><li class="L8"><span class="pln">myApp</span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'GrandChildCtrl'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">'$scope'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">){</span></li><li class="L9"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">timeOfDay </span><span class="pun">=</span><span class="pln"> </span><span class="str">'evening'</span><span class="pun">;</span></li><li class="L0"><span class="pln">  $scope</span><span class="pun">.</span><span class="pln">name </span><span class="pun">=</span><span class="pln"> </span><span class="str">'Gingerbreak Baby'</span><span class="pun">;</span></li><li class="L1"><span class="pun">}]);</span></li></ol></pre>
+</div>
+</div></div>
+
+<h3>效果</h3>
+<div class="well">
+	<iframe src="./6.AngularJS 控制器(Controllers)_files/index(2).html"></iframe>
+</div>
+<p>注意，上面例子中我们在HTML模板中嵌套了三个 <code>ng<span class="pun">-</span>controller</code> 指令，这导致我们的视图中有4个 scope：</p>
+<ul>
+<li>root scope，所有作用域的“根”</li>
+<li><code><span class="typ">MainCtrl</span></code> 控制器管理的 scope （简称 <code><span class="typ">MainCtrl</span></code> scope），拥有 <code>timeOfDay</code> 和 <code>name</code> 两个属性</li>
+<li><code><span class="typ">ChildCtrl</span></code> 控制器管理的 scope （简称 <code><span class="typ">ChildCtrl</span></code> scope），继承了 <code><span class="typ">MainCtrl</span></code> scope 中的 <code>timeOfDay</code> 属性，但重写了它的 <code>name</code> 属性</li>
+<li><code><span class="typ">GrandChildCtrl</span></code> 控制器管理的 scope （简称 <code><span class="typ">GrandChildCtrl</span></code> scope），重写了 <code><span class="typ">MainCtrl</span></code> scope 中的 <code>timeOfDay</code> 属性和 <code><span class="typ">ChildCtrl</span></code> scope 中的 <code>name</code> 属性</li>
+</ul>
+<p>控制器中，方法继承和属性继承的工作方式是一样的，所以，上面例子中的所有属性，我们也可以改写成能够返回字符串值的方法，同样有效。</p>
+<hr>
+<h3>控制器的单元测试</h3>
+<p>虽然我们有很多方法可以对控制器进行测试，但在这里，我们仅展示最常见的一种，包括注入 <a href="http://www.angularjs.net.cn/tutorial/api/ng.$rootScope"><code>$rootScope</code></a> 以及 <a href="http://www.angularjs.net.cn/api/101.html"><code>$controller</code></a> ：</p>
+<p><strong>控制器定义</strong>：
+</p><pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">    </span><span class="kwd">var</span><span class="pln"> myApp </span><span class="pun">=</span><span class="pln"> angular</span><span class="pun">.</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'myApp'</span><span class="pun">,[]);</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="pln">    myApp</span><span class="pun">.</span><span class="pln">controller</span><span class="pun">(</span><span class="str">'MyController'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">      $scope</span><span class="pun">.</span><span class="pln">spices </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[{</span><span class="str">"name"</span><span class="pun">:</span><span class="str">"pasilla"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"spiciness"</span><span class="pun">:</span><span class="str">"mild"</span><span class="pun">},</span></li><li class="L4"><span class="pln">                       </span><span class="pun">{</span><span class="str">"name"</span><span class="pun">:</span><span class="str">"jalapeno"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"spiceiness"</span><span class="pun">:</span><span class="str">"hot hot hot!"</span><span class="pun">},</span></li><li class="L5"><span class="pln">                       </span><span class="pun">{</span><span class="str">"name"</span><span class="pun">:</span><span class="str">"habanero"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"spiceness"</span><span class="pun">:</span><span class="str">"LAVA HOT!!"</span><span class="pun">}];</span></li><li class="L6"><span class="pln">      $scope</span><span class="pun">.</span><span class="pln">spice </span><span class="pun">=</span><span class="pln"> </span><span class="str">"habanero"</span><span class="pun">;</span></li><li class="L7"><span class="pln">    </span><span class="pun">});</span></li></ol></pre>
+<p><strong>控制器测试</strong>：
+</p><pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">describe</span><span class="pun">(</span><span class="str">'myController function'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="pln">  describe</span><span class="pun">(</span><span class="str">'myController'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">    </span><span class="kwd">var</span><span class="pln"> $scope</span><span class="pun">;</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">    beforeEach</span><span class="pun">(</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'myApp'</span><span class="pun">));</span></li><li class="L6"><span class="pln">&nbsp;</span></li><li class="L7"><span class="pln">    beforeEach</span><span class="pun">(</span><span class="pln">inject</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$rootScope</span><span class="pun">,</span><span class="pln"> $controller</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L8"><span class="pln">      $scope </span><span class="pun">=</span><span class="pln"> $rootScope</span><span class="pun">.</span><span class="pln">$new</span><span class="pun">();</span></li><li class="L9"><span class="pln">      $controller</span><span class="pun">(</span><span class="str">'MyController'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">$scope</span><span class="pun">:</span><span class="pln"> $scope</span><span class="pun">});</span></li><li class="L0"><span class="pln">    </span><span class="pun">}));</span></li><li class="L1"><span class="pln">&nbsp;</span></li><li class="L2"><span class="pln">    it</span><span class="pun">(</span><span class="str">'should create "spices" model with 3 spices'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L3"><span class="pln">      expect</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">.</span><span class="pln">spices</span><span class="pun">.</span><span class="pln">length</span><span class="pun">).</span><span class="pln">toBe</span><span class="pun">(</span><span class="lit">3</span><span class="pun">);</span></li><li class="L4"><span class="pln">    </span><span class="pun">});</span></li><li class="L5"><span class="pln">&nbsp;</span></li><li class="L6"><span class="pln">    it</span><span class="pun">(</span><span class="str">'should set the default value of spice'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L7"><span class="pln">      expect</span><span class="pun">(</span><span class="pln">$scope</span><span class="pun">.</span><span class="pln">spice</span><span class="pun">).</span><span class="pln">toBe</span><span class="pun">(</span><span class="str">'habanero'</span><span class="pun">);</span></li><li class="L8"><span class="pln">    </span><span class="pun">});</span></li><li class="L9"><span class="pln">  </span><span class="pun">});</span></li><li class="L0"><span class="pun">});</span></li></ol></pre>
+<p>如果有需要测试嵌套关系的控制器，那么在你的测试代码中，你也得创建对应于 scope 层级结构的测试代码：</p>
+<pre class="prettyprint linenums"><ol class="linenums"><li class="L0"><span class="pln">describe</span><span class="pun">(</span><span class="str">'state'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L1"><span class="pln">    </span><span class="kwd">var</span><span class="pln"> mainScope</span><span class="pun">,</span><span class="pln"> childScope</span><span class="pun">,</span><span class="pln"> grandChildScope</span><span class="pun">;</span></li><li class="L2"><span class="pln">&nbsp;</span></li><li class="L3"><span class="pln">    beforeEach</span><span class="pun">(</span><span class="kwd">module</span><span class="pun">(</span><span class="str">'myApp'</span><span class="pun">));</span></li><li class="L4"><span class="pln">&nbsp;</span></li><li class="L5"><span class="pln">    beforeEach</span><span class="pun">(</span><span class="pln">inject</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">$rootScope</span><span class="pun">,</span><span class="pln"> $controller</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></li><li class="L6"><span class="pln">        mainScope </span><span class="pun">=</span><span class="pln"> $rootScope</span><span class="pun">.</span><span class="pln">$new</span><span class="pun">();</span></li><li class="L7"><span class="pln">        $controller</span><span class="pun">(</span><span class="str">'MainCtrl'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">$scope</span><span class="pun">:</span><span class="pln"> mainScope</span><span class="pun">});</span></li><li class="L8"><span class="pln">        childScope </span><span class="pun">=</span><span class="pln"> mainScope</span><span class="pun">.</span><span class="pln">$new</span><span class="pun">();</span></li><li class="L9"><span class="pln">        $controller</span><span class="pun">(</span><span class="str">'ChildCtrl'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">$scope</span><span class="pun">:</span><span class="pln"> childScope</span><span class="pun">});</span></li><li class="L0"><span class="pln">        grandChildScope </span><span class="pun">=</span><span class="pln"> childScope</span><span class="pun">.</span><span class="pln">$new</span><span class="pun">();</span></li><li class="L1"><span class="pln">        $controller</span><span class="pun">(</span><span class="str">'GrandChildCtrl'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">$scope</span><span class="pun">:</span><span class="pln"> grandChildScope</span><span class="pun">});</span></li><li class="L2"><span class="pln">    </span><span class="pun">}));</span></li><li class="L3"><span class="pln">&nbsp;</span></li><li class="L4"><span class="pln">    it</span><span class="pun">(</span><span class="str">'should have over and selected'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span></li><li class="L5"><span class="pln">        expect</span><span class="pun">(</span><span class="pln">mainScope</span><span class="pun">.</span><span class="pln">timeOfDay</span><span class="pun">).</span><span class="pln">toBe</span><span class="pun">(</span><span class="str">'morning'</span><span class="pun">);</span></li><li class="L6"><span class="pln">        expect</span><span class="pun">(</span><span class="pln">mainScope</span><span class="pun">.</span><span class="pln">name</span><span class="pun">).</span><span class="pln">toBe</span><span class="pun">(</span><span class="str">'Nikki'</span><span class="pun">);</span></li><li class="L7"><span class="pln">        expect</span><span class="pun">(</span><span class="pln">childScope</span><span class="pun">.</span><span class="pln">timeOfDay</span><span class="pun">).</span><span class="pln">toBe</span><span class="pun">(</span><span class="str">'morning'</span><span class="pun">);</span></li><li class="L8"><span class="pln">        expect</span><span class="pun">(</span><span class="pln">childScope</span><span class="pun">.</span><span class="pln">name</span><span class="pun">).</span><span class="pln">toBe</span><span class="pun">(</span><span class="str">'Mattie'</span><span class="pun">);</span></li><li class="L9"><span class="pln">        expect</span><span class="pun">(</span><span class="pln">grandChildScope</span><span class="pun">.</span><span class="pln">timeOfDay</span><span class="pun">).</span><span class="pln">toBe</span><span class="pun">(</span><span class="str">'evening'</span><span class="pun">);</span></li><li class="L0"><span class="pln">        expect</span><span class="pun">(</span><span class="pln">grandChildScope</span><span class="pun">.</span><span class="pln">name</span><span class="pun">).</span><span class="pln">toBe</span><span class="pun">(</span><span class="str">'Gingerbreak Baby'</span><span class="pun">);</span></li><li class="L1"><span class="pln">    </span><span class="pun">});</span></li><li class="L2"><span class="pun">});</span></li></ol></pre>
+
+
+	<div class="ad1">	
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 336 x 280 -->
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-6117966252207595" data-ad-slot="9942648348"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>	
+	
+		</div>
+	</div>
+</div>
+<footer>
+	<p>Copyright © 2014 - 2018 <a href="http://www.angularjs.net.cn/">AngularJS中文网</a>, <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备15074038号-4</a>, All Rights Reserved.
+
+</p>
+</footer>
+<script type="text/javascript">
+    /*图+推广*/
+    /*建议投放在200*300以上的图片*/
+    var cpro_id = "u1948815";
+</script>
+<script type="text/javascript" src="./6.AngularJS 控制器(Controllers)_files/i.js.下载"></script>
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?12ec03a62d55d8fb4b144b14ccedecec";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<script src="./6.AngularJS 控制器(Controllers)_files/jquery.js.下载"></script>
+<script src="./6.AngularJS 控制器(Controllers)_files/common.js.下载"></script>
+<script src="./6.AngularJS 控制器(Controllers)_files/bootstrap.min.js.下载"></script>
+
+</body></html>

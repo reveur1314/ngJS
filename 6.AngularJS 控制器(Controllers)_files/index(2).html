@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://www.angularjs.net.cn/Examples/6/index.html -->
+<html ng-app="scopeInheritance" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>
+	 <link rel="stylesheet" href="./style(1).css">
+    <script src="./angular.min.js.下载"></script>
+    <script src="./script.js(2).下载"></script>
+  </head>
+  <body>
+    <div ng-app="scopeInheritance" class="spicy">
+      <div ng-controller="MainCtrl" class="ng-scope">
+        <p class="ng-binding">Good morning, Nikki!</p>
+    
+        <div ng-controller="ChildCtrl" class="ng-scope">
+          <p class="ng-binding">Good morning, Mattie !</p>
+    
+          <div ng-controller="GrandChildCtrl" class="ng-scope">
+            <p class="ng-binding">Good evening, Gingerbreak Baby!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+</body></html>
